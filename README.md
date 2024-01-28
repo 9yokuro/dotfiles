@@ -1,6 +1,25 @@
 # dotfiles
-![screenshot](./images/term.png)
 My config files
+![screenshot](./images/term.png)
+
+## Contents
+- Alacritty config
+- Clangd config
+- Neovim config
+- SwayWM config
+- Tmux config
+- Waybar config
+- Zsh config
+
+## Requirements
+### General
+- A [Nerd Font](https://www.nerdfonts.com/)
+### Neovim
+- Git
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd)
+### Zsh
+- [fzf](https://github.com/junegunn/fzf)
 
 ## Installation
 Use [sdmw](https://github.com/p1486/sdmw):
@@ -13,5 +32,5 @@ Or use `install.py`
 ```
 git clone https://github.com/p1486/dotfiles/tree/main
 cd dotfiles
-python install.py
+python install.py install
 ```
