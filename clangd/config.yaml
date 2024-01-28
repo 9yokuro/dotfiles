@@ -1,0 +1,7 @@
+CompileFlags:
+  Add: [-Wall]
+If:
+  PathMatch: [.*\.hpp, .*\.cpp, .*\.cc]
+  CompileFlags:
+    Add:
+      [-xc++, -std=c++20]

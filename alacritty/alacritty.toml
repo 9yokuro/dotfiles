@@ -1,0 +1,28 @@
+import = ["/home/p14/.config/alacritty/theme.toml"]
+
+[font]
+size = 12.0
+
+[font.bold]
+family = "IosevkaNerdFontMono"
+style = "Bold"
+
+[font.bold_italic]
+family = "IosevkaNerdFontMono"
+style = "Bold Italic"
+
+[font.italic]
+family = "IosevkaNerdFontMono"
+style = "Italic"
+
+[font.normal]
+family = "IosevkaNerdFontMono"
+style = "Regular"
+
+[shell]
+args = ["-l", "-c", "tmux a -t 0 || tmux"]
+program = "/bin/zsh"
+
+[window]
+dynamic_title = true
+opacity = 0.5
