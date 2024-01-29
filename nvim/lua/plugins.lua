@@ -81,6 +81,8 @@ require("lazy").setup({
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/vim-vsnip",
 			"hrsh7th/cmp-vsnip",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-nvim-lsp-document-symbol",
 			"onsails/lspkind.nvim",
 		},
 		config = function()
@@ -103,6 +105,8 @@ require("lazy").setup({
 				sources = cmp.config.sources({
 					{ name = "nvim_lsp" },
 					{ name = "vsnip" },
+					{ name = "nvim_lsp_document_symbol" },
+					{ name = "nvim_lsp_signature_help" },
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
@@ -276,7 +280,24 @@ require("lazy").setup({
 				"<leader>fh",
 				mode = "n",
 			},
+			{
+				"<leader><leader>",
+				mode = "n",
+			},
 		},
+	},
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		lazy = true,
+		keys = {
+			{
+				"<leader><leader>",
+				mode = "n",
+			},
+		},
+		config = function()
+			require("telescope").load_extention("frecency")
+		end,
 	},
 
 	-- File explorer

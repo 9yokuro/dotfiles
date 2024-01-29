@@ -1,12 +1,13 @@
 {
   "path": [
-      "~/.config/alacritty",
-      "~/.config/clangd",
-      "~/.config/nvim",
-      "~/.config/sway",
-      "~/.config/tmux",
-      "~/.config/waybar",
-      "~/.config/zsh",
-      "~/.zshrc"
+    "~/.config/alacritty",
+    "~/.config/clangd",
+    "~/.config/nvim",
+    "~/.config/sway",
+    "~/.config/tmux",
+    "~/.config/waybar",
+    "~/.config/zsh",
+    "~/.config/sheldon",
+    "~/.zshrc"
   ]
 }
