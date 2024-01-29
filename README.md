@@ -12,13 +12,14 @@
 
 ## Requirements
 ### General
-- A [Nerd Font](https://www.nerdfonts.com/)
+- [Nerd Font](https://www.nerdfonts.com/)
 ### Neovim
 - Git
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fd](https://github.com/sharkdp/fd)
 ### Zsh
 - [fzf](https://github.com/junegunn/fzf)
+- [sheldon](https://github.com/rossmacarthur/sheldon)
 
 ## Installation
 Use [sdmw](https://github.com/p1486/sdmw):
