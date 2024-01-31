@@ -17,4 +17,3 @@ apply = ["defer"]
 [plugins.zsh-completions]
 github = "zsh-users/zsh-completions"
 apply = ["defer"]
-hooks.post = "rm -rf ~/.zcompdump"

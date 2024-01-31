@@ -28,9 +28,9 @@ git clone https://github.com/p1486/dotfiles/tree/main
 cd dotfiles
 sdmw install
 ```
-Or use `install.py`
+Or use `scripts/install.py`
 ```
 git clone https://github.com/p1486/dotfiles/tree/main
 cd dotfiles
-python install.py install
+python scripts/install.py install
 ```

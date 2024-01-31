@@ -48,8 +48,6 @@ require("lazy").setup({
 					"gopls",
 					"tsserver",
 					"html",
-					"jdtls",
-					"elixirls",
 					"bashls",
 				},
 			})
@@ -350,8 +348,6 @@ require("lazy").setup({
 					"typescript",
 					"javascript",
 					"html",
-					"java",
-					"elixir",
 				},
 				sync_install = false,
 				auto_install = true,

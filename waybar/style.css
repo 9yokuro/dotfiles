@@ -1,6 +1,6 @@
 * {
-    font-family: SourceSans3;
-    font-size: 13px;
+    font-family: NotoSans;
+    font-size: 12px;
 }
 
 window#waybar {
@@ -18,11 +18,13 @@ button {
     padding: 0 8px;
     color: #eedcd2;
     background-color: #000810;
+    border: 0.1px solid;
     opacity: 0.5;
 }
 
 #workspaces button.focused {
     color: #007ce9;
+    border: 0.5px solid;
     opacity: 1.0;
 }
 
@@ -39,6 +41,7 @@ button {
 #clock {
     background-color: #000810;
     padding: 0 8px;
+    border: 0.3px solid;
     border-radius: 20px;
 }
 

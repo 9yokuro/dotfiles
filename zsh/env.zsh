@@ -1,7 +1,9 @@
 # Path
 typeset -U path PATH
-path=(~/.cargo/bin $path)
+path=(~/.cargo/bin/ $path)
 export PATH
 
-## Completion path
+export VENV_EXISTS="0"
+
+# Completion path
 fpath=(~/.zsh-plugins/zsh-completions/src $fpath)

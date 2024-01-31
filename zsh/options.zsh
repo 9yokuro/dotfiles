@@ -28,7 +28,7 @@ function select-history() {
 zle -N select-history
 bindkey "^r" select-history
 
-## Completion
+# Completion
 autoload -Uz compinit && compinit
 zstyle ":completion:*" menu select
 setopt menu_complete

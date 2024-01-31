@@ -1,3 +1,5 @@
+source ~/.config/zsh/login.zsh
+source ~/.config/zsh/env.zsh
 function source {
   ensure_zcompiled $1
   builtin source $1
@@ -10,8 +12,6 @@ function ensure_zcompiled {
   fi
 }
 ensure_zcompiled ~/.zshrc
-source ~/.config/zsh/login.zsh
-source ~/.config/zsh/env.zsh
 cache_dir=${XDG_CACHE_HOME:-$HOME/.cache}
 sheldon_cache="$cache_dir/sheldon.zsh"
 sheldon_toml="$HOME/.config/sheldon/plugins.toml"
@@ -25,4 +25,4 @@ source ~/.config/zsh/prompt.zsh
 source ~/.config/zsh/options.zsh
 source ~/.config/zsh/alias.zsh
 unfunction source
-compinit
+bash -c "rm -rf ~/.zcompdump"; compinit
