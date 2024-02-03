@@ -8,7 +8,7 @@ set $right l
 set $term alacritty 
 
 set $menu bemenu-run \
---fn "NotoSans 12" \
+--fn "SourceSans3 12" \
 --tb "#000810" \
 --tf "#eea47f" \
 --fb "#000810" \
@@ -122,7 +122,7 @@ gaps left 5
 gaps inner 10
 
 exec waybar
-exec mako --font=NotoSans 10 --background-color=#000810 --text-color=#eedcd2 --border-color=#001629 --border-size=1 --default-timeout=30000 --ignore-timeout=0 --border-radius=20
+exec mako --font=SourceSans3 10 --background-color=#000810 --text-color=#eedcd2 --border-color=#001629 --border-size=1 --default-timeout=30000 --ignore-timeout=0 --border-radius=20
 exec fcitx5
 
 include /etc/sway/config.d/*

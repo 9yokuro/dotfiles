@@ -1,0 +1,27 @@
+#! /bin/sh
+
+# config bspwm
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d I II III IV V
+
+bspc config border_width         1
+bspc config window_gap          10
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Alacritty state=floating
+bspc rule -a fcitx5-config-qt state=floating
+
+killall sxhkd
+sxhkd -c ~/.config/sxhkd/sxhkdrc &
+fcitx5 &
+dunst &
+polybar &
+gentoo-pipewire-launcher &
+xset s off -dpms &
+picom --config ~/.config/picom/picom.conf &
+feh --bg-scale ~/photo/wallpaper/anton-kraev-blue.jpg &

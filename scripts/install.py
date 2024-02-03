@@ -53,7 +53,7 @@ def delete_symlinks(files: list[str], quiet: bool, pretend: bool) -> None:
 
 
 def main():
-    parse_args("settings.json")
+    parse_args("../settings.json")
 
 
 if __name__ == "__main__":
