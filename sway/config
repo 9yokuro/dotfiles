@@ -24,7 +24,7 @@ set $menu bemenu-run \
 --ab "#000810" \
 --af "#eedcd2" \
 --bdr "#001629" \
--w -l 5 -p bemenu -c --fixed-height -M 800 -B 4 -R 10
+-w -l 5 -p bemenu -M 800 -B 4 -c
 
 output * bg ~/.config/sway/star.jpg fill
 
@@ -37,8 +37,8 @@ bindsym $mod+Shift+e mode "exit"
 
 mode "exit" {
     
-    bindsym r exec sudo systemctl reboot
-    bindsym p exec sudo systemctl poweroff
+    bindsym r exec sudo openrc-shutdown -r now
+    bindsym p exec sudo openrc-shutdown -p now
     bindsym e exec swaymsg exit
 
     bindsym Escape mode "default"
@@ -123,6 +123,7 @@ gaps inner 10
 
 exec waybar
 exec mako --font=SourceSans3 10 --background-color=#000810 --text-color=#eedcd2 --border-color=#001629 --border-size=1 --default-timeout=30000 --ignore-timeout=0 --border-radius=20
+exec gentoo-pipewire-launcher
 exec fcitx5
 
 include /etc/sway/config.d/*

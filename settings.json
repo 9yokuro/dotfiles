@@ -1,5 +1,5 @@
 {
-  "path": [
+  "paths": [
     "~/.config/alacritty",
     "~/.config/clangd",
     "~/.config/nvim",
