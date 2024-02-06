@@ -20,11 +20,11 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "󰘚 CPU {usage}%",
+        "format": "󰘚  CPU {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "󰍜 RAM {}%"
+        "format": "󰍜  RAM {}%"
     },
     "network": {
         "format-wifi": "{essid} ({signalStrength}%) ",

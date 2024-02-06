@@ -469,4 +469,38 @@ require("lazy").setup({
 		end,
 		opts = {},
 	},
+
+	{
+		"p1486/afmt.nvim",
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			require("afmt").setup({
+				{
+					patterns = "*.lua",
+					command = "stylua",
+				},
+				{
+					patterns = "*.rs",
+					command = "rustfmt",
+				},
+				{
+					patterns = "*.go",
+					command = "go fmt",
+				},
+				{
+					patterns = "*.py",
+					command = "black",
+				},
+				{
+					patterns = "*.py",
+					command = "isort",
+				},
+				{
+					patterns = { "*.c", "*.cc", "*.cpp", "*.h", "*.hpp" },
+					command = "clang-format -i --style='{ IndentWidth: 4, BasedOnStyle: LLVM}'",
+				},
+			})
+		end,
+	},
 })
