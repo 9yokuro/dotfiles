@@ -82,6 +82,15 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"hrsh7th/cmp-nvim-lsp-document-symbol",
 			"onsails/lspkind.nvim",
+			"saadparwaiz1/cmp_luasnip",
+			"rafamadriz/friendly-snippets",
+			{
+				"L3MON4D3/LuaSnip",
+				build = "make install_jsregexp",
+				config = function()
+					require("luasnip.loaders.from_vscode").lazy_load()
+				end,
+			},
 		},
 		config = function()
 			local cmp = require("cmp")
@@ -90,6 +99,7 @@ require("lazy").setup({
 				snippet = {
 					expand = function(args)
 						vim.fn["vsnip#anonymous"](args.body)
+						require("luasnip").lsp_expand(args.body)
 					end,
 				},
 				window = {},
@@ -105,6 +115,7 @@ require("lazy").setup({
 					{ name = "vsnip" },
 					{ name = "nvim_lsp_document_symbol" },
 					{ name = "nvim_lsp_signature_help" },
+					{ name = "luasnip" },
 				}, {
 					{ name = "buffer" },
 					{ name = "path" },
@@ -168,6 +179,36 @@ require("lazy").setup({
 				},
 			})
 		end,
+	},
+	{
+		"folke/trouble.nvim",
+		lazy = true,
+		keys = {
+			{
+				"<leader>xx",
+				mode = "n",
+			},
+			{
+				"<leader>xw",
+				mode = "n",
+			},
+			{
+				"<leader>xd",
+				mode = "n",
+			},
+			{
+				"<leader>xq",
+				mode = "n",
+			},
+			{
+				"<leader>xl",
+				mode = "n",
+			},
+			{
+				"gR",
+				mode = "n",
+			},
+		},
 	},
 
 	-- Statusline
@@ -502,5 +543,37 @@ require("lazy").setup({
 				},
 			})
 		end,
+	},
+
+	{
+		"petertriho/nvim-scrollbar",
+		lazy = true,
+		event = "VimEnter",
+		config = function()
+			local colors = require("kingfisher.colors")
+			require("scrollbar").setup({
+				handle = {
+					color = colors.line,
+				},
+			})
+		end,
+	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			{
+				"rcarriga/nvim-notify",
+				config = function()
+					require("notify").setup({
+						background_colour = "#000810",
+					})
+				end,
+			},
+		},
 	},
 })
