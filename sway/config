@@ -37,8 +37,8 @@ bindsym $mod+Shift+e mode "exit"
 
 mode "exit" {
     
-    bindsym r exec sudo openrc-shutdown -r now
-    bindsym p exec sudo openrc-shutdown -p now
+    bindsym r exec doas /sbin/openrc-shutdown -r now
+    bindsym p exec doas /sbin/openrc-shutdown -p now
     bindsym e exec swaymsg exit
 
     bindsym Escape mode "default"
@@ -89,7 +89,7 @@ bindsym $mod+c focus child
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-bindsym $mod+Shift+w exec /usr/share/sway/scripts/grimshot save screen
+bindsym $mod+Shift+w exec grimshot save screen
 
 mode "resize" {
 

@@ -20,8 +20,8 @@ family = "IosevkaNerdFontMono"
 style = "Regular"
 
 [shell]
-args = ["-l", "-c", "tmux a -t 0 || tmux"]
-program = "/bin/zsh"
+program = "tmux"
+args = ["new-session", "zsh"]
 
 [window]
 dynamic_title = true

@@ -49,6 +49,8 @@ require("lazy").setup({
 					"tsserver",
 					"html",
 					"bashls",
+					"jsonls",
+					"yamlls",
 				},
 			})
 			require("mason-lspconfig").setup_handlers({
@@ -211,6 +213,7 @@ require("lazy").setup({
 		},
 	},
 
+	-- UI
 	-- Statusline
 	{
 		"nvim-lualine/lualine.nvim",
@@ -389,6 +392,10 @@ require("lazy").setup({
 					"typescript",
 					"javascript",
 					"html",
+					"java",
+					"elixir",
+					"julia",
+					"bash",
 				},
 				sync_install = false,
 				auto_install = true,
@@ -403,6 +410,8 @@ require("lazy").setup({
 
 	{
 		"norcalli/nvim-colorizer.lua",
+		lazy = true,
+		event = "VimEnter",
 		config = function()
 			vim.opt.termguicolors = true
 			require("colorizer").setup()
@@ -558,12 +567,11 @@ require("lazy").setup({
 			})
 		end,
 	},
+
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
+		opts = {},
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			{
@@ -575,5 +583,30 @@ require("lazy").setup({
 				end,
 			},
 		},
+	},
+
+	{
+		"RRethy/vim-illuminate",
+		lazy = true,
+		event = "VimEnter",
+		config = function()
+			require("illuminate").configure()
+		end,
+	},
+
+	{
+		"folke/todo-comments.nvim",
+		lazy = true,
+		event = "VimEnter",
+		opts = {},
+	},
+
+	{
+		"anuvyklack/pretty-fold.nvim",
+		lazy = true,
+		event = "VimEnter",
+		config = function()
+			require("pretty-fold").setup()
+		end,
 	},
 })
