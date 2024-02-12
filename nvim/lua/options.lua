@@ -14,7 +14,6 @@ vim.opt.autoread = true
 vim.opt.hidden = true
 vim.opt.swapfile = false
 vim.opt.shell = "/bin/zsh"
-vim.opt.helplang = "en"
 vim.opt.splitright = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
