@@ -3,18 +3,11 @@
 
 ## Contents
 - Alacritty config
-- BspWM config
 - Clangd config
-- Dunst config
-- I3WM config
 - Neovim config
-- Picom config
-- Polybar config
-- Rofi config
 - SwayWM config
 - Tmux config
 - Waybar config
-- Wezterm config
 - Zsh config
 
 ## Requirements
