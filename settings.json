@@ -6,8 +6,6 @@
     "~/.config/sway",
     "~/.config/tmux",
     "~/.config/waybar",
-    "~/.config/zsh",
-    "~/.config/sheldon",
     "~/.zshrc"
   ]
 }

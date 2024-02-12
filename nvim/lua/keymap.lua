@@ -1,109 +1,28 @@
--- General
 vim.g.mapleader = ";"
-vim.keymap.set("n", "ss", ":split<Return><C-w>w")
-vim.keymap.set("n", "sv", ":vsplit<Return><C-w>w")
-vim.keymap.set("", "sh", "<C-w>h")
-vim.keymap.set("", "sk", "<C-w>k")
-vim.keymap.set("", "sj", "<C-w>j")
-vim.keymap.set("", "sl", "<C-w>l")
-
--- Lsp
--- vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)
--- vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
--- vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-	callback = function(ev)
-		vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-		local opts = { buffer = ev.buf }
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		-- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-		-- vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<space>wl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-		end, opts)
-		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, opts)
-		-- vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-		-- vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-		vim.keymap.set("n", "<space>f", function()
-			vim.lsp.buf.format({ async = true })
-		end, opts)
-	end,
-})
-
--- Lspsaga
-vim.keymap.set({ "n", "v" }, "<space>ca", "<cmd>Lspsaga code_action<CR>")
-vim.keymap.set("n", "gd", "<cmd>Lspsaga peek_definition<CR>")
-vim.keymap.set("n", "<space>e", "<cmd>Lspsaga show_line_diagnostics<CR>")
-vim.keymap.set("n", "[d", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
-vim.keymap.set("n", "]d", "<cmd>Lspsaga diagnostic_jump_next<CR>")
-vim.keymap.set("n", "#", "<cmd>Lspsaga finder ref+def<CR>")
-vim.keymap.set("n", "tt", "<cmd>Lspsaga term_toggle<CR>")
-vim.keymap.set("n", "K", "<cmd>Lspsaga hover_doc<CR>")
-vim.keymap.set("n", "<space>rn", "<cmd>Lspsaga rename<CR>")
-
--- Telescope.nvim
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-vim.keymap.set("n", "<leader><leader>", "<cmd>Telescope frecency<CR>")
-
--- Barbar.nvim
-vim.keymap.set("n", "<A-,>", "<Cmd>BufferPrevious<CR>")
-vim.keymap.set("n", "<A-.>", "<Cmd>BufferNext<CR>")
-vim.keymap.set("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>")
-vim.keymap.set("n", "<A->>", "<Cmd>BufferMoveNext<CR>")
-vim.keymap.set("n", "<A-1>", "<Cmd>BufferGoto 1<CR>")
-vim.keymap.set("n", "<A-2>", "<Cmd>BufferGoto 2<CR>")
-vim.keymap.set("n", "<A-3>", "<Cmd>BufferGoto 3<CR>")
-vim.keymap.set("n", "<A-4>", "<Cmd>BufferGoto 4<CR>")
-vim.keymap.set("n", "<A-5>", "<Cmd>BufferGoto 5<CR>")
-vim.keymap.set("n", "<A-6>", "<Cmd>BufferGoto 6<CR>")
-vim.keymap.set("n", "<A-7>", "<Cmd>BufferGoto 7<CR>")
-vim.keymap.set("n", "<A-8>", "<Cmd>BufferGoto 8<CR>")
-vim.keymap.set("n", "<A-9>", "<Cmd>BufferGoto 9<CR>")
-vim.keymap.set("n", "<A-0>", "<Cmd>BufferLast<CR>")
-vim.keymap.set("n", "<A-p>", "<Cmd>BufferPin<CR>")
-vim.keymap.set("n", "<A-c>", "<Cmd>BufferClose<CR>")
-vim.keymap.set("n", "<C-p>", "<Cmd>BufferPick<CR>")
-vim.keymap.set("n", "<Space>bb", "<Cmd>BufferOrderByBufferNumber<CR>")
-vim.keymap.set("n", "<Space>bd", "<Cmd>BufferOrderByDirectory<CR>")
-vim.keymap.set("n", "<Space>bl", "<Cmd>BufferOrderByLanguage<CR>")
-vim.keymap.set("n", "<Space>bw", "<Cmd>BufferOrderByWindowNumber<CR>")
-
--- Trouble
-vim.keymap.set("n", "<leader>xx", function()
-	require("trouble").toggle()
+vim.keymap.set("n", "ss", "<cmd>split<CR>")
+vim.keymap.set("n", "sv", "<cmd>vsplit<CR>")
+vim.keymap.set("n", "sh", "<cmd>wincmd h<CR>")
+vim.keymap.set("n", "sj", "<cmd>wincmd j<CR>")
+vim.keymap.set("n", "sk", "<cmd>wincmd k<CR>")
+vim.keymap.set("n", "sl", "<cmd>wincmd l<CR>")
+vim.keymap.set("n", "sH", "<cmd>wincmd H<CR>")
+vim.keymap.set("n", "sJ", "<cmd>wincmd J<CR>")
+vim.keymap.set("n", "sK", "<cmd>wincmd K<CR>")
+vim.keymap.set("n", "sL", "<cmd>wincmd L<CR>")
+vim.keymap.set("n", "tt", function()
+    local buffer = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_open_win(buffer, true, {
+        relative = "editor",
+        width = vim.api.nvim_win_get_width(0) - 8,
+        height = vim.api.nvim_win_get_height(0) - 2,
+        col = 4,
+        row = 1,
+    })
+    vim.api.nvim_command("terminal")
 end)
-vim.keymap.set("n", "<leader>xw", function()
-	require("trouble").toggle("workspace_diagnostics")
-end)
-vim.keymap.set("n", "<leader>xd", function()
-	require("trouble").toggle("document_diagnostics")
-end)
-vim.keymap.set("n", "<leader>xq", function()
-	require("trouble").toggle("quickfix")
-end)
-vim.keymap.set("n", "<leader>xl", function()
-	require("trouble").toggle("loclist")
-end)
-vim.keymap.set("n", "gR", function()
-	require("trouble").toggle("lsp_references")
-end)
-
--- Todo
-vim.keymap.set("n", "]t", function()
-	require("todo-comments").jump_next()
-end, { desc = "Next todo comment" })
-
-vim.keymap.set("n", "[t", function()
-	require("todo-comments").jump_prev()
-end, { desc = "Previous todo comment" })
+vim.keymap.set("n", "<C-n>", "<cmd>silent 30 Lexplore<CR>")
+for i = 0, 9 do
+    vim.keymap.set("n", "<M-" .. tostring(i) .. ">", "<cmd>b " .. tostring(i) .. "<CR>")
+end
+vim.keymap.set("n", "<M-,>", "<cmd>bprevious<CR>")
+vim.keymap.set("n", "<M-.>", "<cmd>bnext<CR>")

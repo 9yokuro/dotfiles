@@ -9,23 +9,17 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.ambiwidth = "single"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
-vim.opt.clipboard= "unnamed,unnamedplus"
+vim.opt.clipboard:append({ "unnamedplus" })
 vim.opt.autoread = true
 vim.opt.hidden = true
 vim.opt.swapfile = false
-vim.opt.shell = "/bin/zsh"
-vim.opt.helplang = "en"
+vim.opt.shell = "zsh"
+vim.opt.helplang = "ja,en"
 vim.opt.splitright = true
 vim.opt.expandtab = true
 vim.opt.smarttab = true
-vim.api.nvim_create_augroup("indent", { clear = true })
-vim.api.nvim_create_autocmd("VimEnter", {
-    pattern = { "*.json", "*.yaml", "*.yml" },
-    callback = function()
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
-    end,
-})
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Appearance
 vim.g.termguicolors = true
@@ -39,24 +33,9 @@ vim.opt.laststatus = 3
 vim.opt.signcolumn = "yes"
 vim.opt.cursorline = true
 vim.opt.winblend = 20
-vim.opt.pumblend = 20
 
 -- Search
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.incsearch = true
-
--- Term
-vim.api.nvim_create_augroup("term", { clear = true })
-vim.api.nvim_create_autocmd("TermOpen", {
-    callback = function()
-        vim.api.nvim_command("startinsert")
-	    vim.opt.relativenumber = false
-    end
-})
-vim.api.nvim_create_autocmd("TermClose", {
-    callback = function()
-        vim.api.nvim_command("close")
-    end
-})
