@@ -1,5 +1,7 @@
 # Login
-[ "$(tty)" = "/dev/tty1" ] && dbus-run-session sway
+if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    exec sway
+fi
 
 # Path
 typeset -U path PATH

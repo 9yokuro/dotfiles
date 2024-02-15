@@ -1,11 +1,11 @@
 {
   "paths": [
     "~/.config/alacritty",
-    "~/.config/clangd",
     "~/.config/nvim",
     "~/.config/sway",
     "~/.config/tmux",
     "~/.config/waybar",
-    "~/.zshrc"
+    "~/.zshrc",
+    "~/.vimrc"
   ]
 }
