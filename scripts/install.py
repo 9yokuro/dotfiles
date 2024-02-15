@@ -22,7 +22,7 @@ def parse_args(path: str) -> None:
     parser.add_argument("-p", "--pretend", action="store_true", help="Print what it would install but not actually change anything.")
     args = parser.parse_args()
 
-    files: list[str] = read_settings(path)["path"]
+    files: list[str] = read_settings(path)["paths"]
 
     match args.actions:
         case Actions.Install:
@@ -39,7 +39,7 @@ def read_settings(path: str) -> dict[str, list[str]]:
 def create_symlinks(files: list[str], quiet: bool, pretend: bool) -> None:
     for i in files:
         if not pretend:
-            symlink(path.abspath(path.basename(i)), path.abspath(i))
+            symlink(path.abspath(path.basename(i)), path.abspath(path.expanduser(i)))
         if pretend or not quiet:
             print(f"\033[32m\033[1mCreated\033[0m symlink {path.basename(i)} -> {i}")
 
@@ -53,7 +53,7 @@ def delete_symlinks(files: list[str], quiet: bool, pretend: bool) -> None:
 
 
 def main():
-    parse_args("../settings.json")
+    parse_args("settings.json")
 
 
 if __name__ == "__main__":
