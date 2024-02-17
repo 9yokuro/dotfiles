@@ -10,25 +10,18 @@ export PATH
 
 # Alias
 alias g="git"
-alias gc="git clone"
-alias gs="git status"
-alias gb="git branch"
-alias gct="git commit"
-alias gch="git checkout"
 alias ga="git add"
-alias gps="git push"
-alias gpl="git pull"
+alias gb="git branch"
+alias gc="git commit"
+alias gC="git clone"
+alias gp="git push"
+alias gP="git pull"
+alias gs="git status"
+alias gS="git switch"
 alias v="nvim"
 alias doas="doas "
-alias zs="source ~/.zshrc"
-alias c="clear"
-alias rm="wrm"
-alias ln="lanb"
 alias e="exit"
-alias grep="grep --color=auto"
-alias la="ls -a --color"
-alias ls="ls -s -l -h --color -G"
-alias less="less -g -i -M -R -S -W -z-4 -x4"
+alias ls="ls --size -l --human-readable --color --no-group"
 
 # Options
 setopt autocd

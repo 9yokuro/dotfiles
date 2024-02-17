@@ -6,7 +6,6 @@
 - Neovim
 - Sway
 - Tmux
-- Vim
 - Waybar
 - Zsh
 
@@ -26,9 +25,6 @@ Recommend the latest version if not specified.
 - [mako](https://github.com/emersion/mako)
 - [source sans](https://github.com/adobe-fonts/source-sans)
 - [swaybg](https://github.com/swaywm/swaybg)
-
-### Vim
-- ctags
 
 ## Installation
 Use [sdmw](https://github.com/p1486/sdmw):

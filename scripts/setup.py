@@ -10,7 +10,6 @@ FILES: Final[list[str]] = [
     "~/.config/tmux",
     "~/.config/waybar",
     "~/.zshrc",
-    "~/.vimrc",
 ]
 
 
@@ -63,23 +62,23 @@ def remove_symlinks(files: list[str], options: Options) -> None:
             remove(target)
 
         if options.pretend or not options.quiet:
-            print(f"{Colors.Green}{Colors.Bold}Deleted{Colors.Reset} symlink {target}")
+            print(f"{Colors.Green}{Colors.Bold}Removed{Colors.Reset} symlink {target}")
 
     return None
 
 
 def parse_arguments(files: list[str]) -> None:
-    parser = ArgumentParser(description="Install dotfiles.")
+    parser = ArgumentParser(description="Install dotfiles")
 
     parser.add_argument("actions", type=Subcommands, choices=list(Subcommands))
     parser.add_argument(
-        "-q", "--quiet", action="store_true", help="Do not print log messages."
+        "-q", "--quiet", action="store_true", help="Do not print log messages",
     )
     parser.add_argument(
         "-p",
         "--pretend",
         action="store_true",
-        help="Print what it would install but not actually change anything.",
+        help="Print what it would install but not actually change anything",
     )
 
     arguments = parser.parse_args()
