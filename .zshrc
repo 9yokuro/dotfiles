@@ -5,7 +5,7 @@ fi
 
 # Path
 typeset -U path PATH
-path=(~/.cargo/bin/ ~/go/bin $path)
+path=(~/.cargo/bin/ ~/go/bin ~/android/platform-tools $path)
 export PATH
 
 # Alias
