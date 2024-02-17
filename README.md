@@ -7,6 +7,7 @@
 - Sway
 - Tmux
 - Waybar
+- Vim
 - Zsh
 
 ## Requirements
@@ -16,7 +17,7 @@ Recommend the latest version if not specified.
 - A Unix-like operating system (Tested on [Gentoo Linux](https://www.gentoo.org/) and [Arch Linux](https://archlinux.org/).)
 - [Nerd Font](https://www.nerdfonts.com/) (Recommended: Iosevka Nerd Font)
 
-### Neovim
+### Neovim/Vim
 - [ctags](https://github.com/universal-ctags/ctags)
 
 ### Sway
