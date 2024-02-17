@@ -6,17 +6,19 @@ vim9script
 set ambiwidth=single
 set autoread
 set nobackup
-set clipboard=unnamedplus
+set clipboard=unnamed,unnamedplus
 set encoding=utf-8
 set fileencoding=utf-8
 set nofsync
 set hidden
+set path=.**100,/usr/include**100
 set shell=/bin/zsh
 set splitbelow
 set splitright
 set noswapfile
 set nowrap
 set writebackup
+set wildmenu
 
 # Indent
 set autoindent
@@ -49,12 +51,6 @@ set ignorecase
 set incsearch
 set smartcase
 
-# Terminal
-augroup terminal
-    autocmd!
-    autocmd TerminalOpen * set norelativenumber nonumber
-augroup END
-
 # Netrw
 g:netrw_banner = 0
 g:netrw_liststyle = 3
@@ -64,6 +60,9 @@ augroup quickfix
     autocmd!
     autocmd QuickFixCmdPost *grep*,*make* silent cwindow
 augroup END
+
+# Tags
+set tags=./tags;,tags;
 
 # Default plugins
 g:did_indent_on = 1
@@ -96,10 +95,12 @@ g:loaded_newmetadata = 1
 
 # General
 g:mapleader = ";"
+inoremap jj <Esc>
 
 # Window
 nnoremap ss <cmd>split<CR>
 nnoremap sv <cmd>vsplit<CR>
+nnoremap sc <cmd>wincmd c<CR>
 nnoremap sh <cmd>wincmd h<CR>
 nnoremap sj <cmd>wincmd j<CR>
 nnoremap sk <cmd>wincmd k<CR>
@@ -110,9 +111,9 @@ nnoremap sK <cmd>wincmd K<CR>
 nnoremap sL <cmd>wincmd L<CR>
 
 # Terminal
-nnoremap tt <cmd>tabnew<CR><cmd>term ++curwin<CR>
-nnoremap ts <cmd>belowright new<CR><cmd>term ++curwin<CR>
-nnoremap tv <cmd>vsplit<CR><cmd>term ++curwin<CR>
+nnoremap tt <cmd>tab terminal<CR>
+nnoremap ts <cmd>bo terminal<CR>
+nnoremap tv <cmd>vert terminal<CR>
 
 # VimGrep
 nnoremap <leader>g :silent vimgrep 

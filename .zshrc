@@ -24,13 +24,10 @@ alias zs="source ~/.zshrc"
 alias c="clear"
 alias rm="wrm"
 alias ln="lanb"
-alias clang="clang -Weverything -Werror"
-alias clang++="clang++ -Weverything -Werror -std=c++20"
 alias e="exit"
 alias grep="grep --color=auto"
 alias la="ls -a --color"
 alias ls="ls -s -l -h --color -G"
-alias md="mkdir -pv"
 alias less="less -g -i -M -R -S -W -z-4 -x4"
 
 # Options

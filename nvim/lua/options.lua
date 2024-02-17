@@ -4,11 +4,12 @@
 vim.opt.ambiwidth = "single"
 vim.opt.autoread = true
 vim.opt.backup = false
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard:append { "unnamed", "unnamedplus" }
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.opt.fsync = false
 vim.opt.hidden = true
+vim.opt.path:append { ".**100", "/usr/include**100", }
 vim.opt.shell = "/bin/zsh"
 vim.opt.splitbelow = true
 vim.opt.splitright = true
@@ -25,7 +26,7 @@ vim.opt.smartindent = true
 vim.opt.smarttab = true
 vim.opt.tabstop = 4
 
-vim.api.nvim_create_augroup("indent", { clear = true })
+vim.api.nvim_create_augroup("indent", {})
 vim.api.nvim_create_autocmd("VimEnter", {
     group = "indent",
     pattern = { "*.json", "*.yaml", "*.yml" },
@@ -36,12 +37,12 @@ vim.api.nvim_create_autocmd("VimEnter", {
 })
 
 -- Appearance
+vim.api.nvim_command("syntax off")
 vim.g.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.cmdheight = 0
 vim.opt.laststatus = 0
 vim.opt.number = true
-vim.api.nvim_command("syntax off")
 vim.opt.relativenumber = true
 vim.opt.ruler = false
 vim.opt.showtabline = 0
@@ -54,7 +55,7 @@ vim.opt.incsearch = true
 vim.opt.smartcase = true
 
 -- Terminal
-vim.api.nvim_create_augroup("terminal", { clear = true })
+vim.api.nvim_create_augroup("terminal", {})
 vim.api.nvim_create_autocmd("TermOpen", {
     group = "terminal",
     callback = function()
@@ -74,15 +75,19 @@ vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
 
 -- QuickFix
-vim.api.nvim_create_augroup("quickfix", { clear = true })
+vim.api.nvim_create_augroup("quickfix", {})
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+    group = "quickfix",
     pattern = { "*grep*", "*make*" },
     command = "silent cwindow",
 })
 
+-- Tags
+vim.opt.tags:append { "./tags;", "tags;" }
+
 -- Default plugins
 vim.g.did_indent_on = 1
-vim.g.did_install_default_menus = 1
+--vim.g.did_install_default_menus = 1
 vim.g.did_install_syntax_menu = 1
 vim.g.did_load_ftplugin = 1
 vim.g.loaded_2html_plugin = 1

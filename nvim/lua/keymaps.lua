@@ -1,11 +1,12 @@
 -- Keymaps
 -- General
 vim.g.mapleader = ";"
+vim.keymap.set("i", "jj", "<Esc>")
 
 -- Window
 vim.keymap.set("n", "ss", "<cmd>split<CR>")
 vim.keymap.set("n", "sv", "<cmd>vsplit<CR>")
-vim.keymap.set("n", "sc", "<cmd>bdelete<CR>")
+vim.keymap.set("n", "sc", "<cmd>wincmd c<CR>")
 vim.keymap.set("n", "sh", "<cmd>wincmd h<CR>")
 vim.keymap.set("n", "sj", "<cmd>wincmd j<CR>")
 vim.keymap.set("n", "sk", "<cmd>wincmd k<CR>")

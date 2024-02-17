@@ -1,29 +1,45 @@
 # dotfiles
-![screenshot](./images/term.png)
+![screenshot](./images/terminal.png)
 
 ## Contents
-- Alacritty config
-- Clangd config
-- Neovim config
-- SwayWM config
-- Tmux config
-- Waybar config
-- Zsh config
+- Alacritty
+- Neovim
+- Sway
+- Tmux
+- Vim
+- Waybar
+- Zsh
 
 ## Requirements
+Recommend the latest version if not specified.
+
 ### General
-- [Nerd Font](https://www.nerdfonts.com/)
+- A Unix-like operating system (Tested on [Gentoo Linux](https://www.gentoo.org/) and [Arch Linux](https://archlinux.org/).)
+- [Nerd Font](https://www.nerdfonts.com/) (Recommended: Iosevka Nerd Font)
+
+### Neovim
+- [ctags](https://github.com/universal-ctags/ctags)
+
+### Sway
+- [bemenu](https://github.com/Cloudef/bemenu)
+- [grim](https://git.sr.ht/~emersion/grim)
+- [mako](https://github.com/emersion/mako)
+- [source sans](https://github.com/adobe-fonts/source-sans)
+- [swaybg](https://github.com/swaywm/swaybg)
+
+### Vim
+- ctags
 
 ## Installation
 Use [sdmw](https://github.com/p1486/sdmw):
-```
+```console
 git clone https://github.com/p1486/dotfiles/tree/main
 cd dotfiles
 sdmw install
 ```
-Or use `scripts/install.py`
-```
+Or use `scripts/setup.py`
+```console
 git clone https://github.com/p1486/dotfiles/tree/main
 cd dotfiles
-python scripts/install.py install
+python scripts/setup.py install
 ```
