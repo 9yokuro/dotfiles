@@ -25,7 +25,6 @@
 ### Sway
 - [bemenu](https://github.com/Cloudef/bemenu)
 - [grim](https://git.sr.ht/~emersion/grim)
-- [mako](https://github.com/emersion/mako)
 - [source sans](https://github.com/adobe-fonts/source-sans)
 - [swaybg](https://github.com/swaywm/swaybg)
 
