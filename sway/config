@@ -37,8 +37,8 @@ bindsym $mod+Shift+e mode "exit"
 
 mode "exit" {
     
-    bindsym r exec doas /usr/sbin/systemctl reboot
-    bindsym p exec doas /usr/sbin/systemctl poweroff
+    bindsym r exec doas /sbin/openrc-shutdown -r now
+    bindsym p exec doas /sbin/openrc-shutdown -p now
     bindsym e exec swaymsg exit
 
     bindsym Escape mode "default"
@@ -124,5 +124,6 @@ gaps inner 10
 exec waybar
 exec mako --font=SourceSans3 10 --background-color=#000810 --text-color=#eedcd2 --border-color=#001629 --border-size=1 --default-timeout=30000 --ignore-timeout=0 --border-radius=20
 exec fcitx5
+exec gentoo-pipewire-launcher
 
 include /etc/sway/config.d/*
