@@ -12,23 +12,6 @@ vim.opt.ruler = false
 vim.opt.showtabline = 0
 vim.opt.title = false
 
--- General
-vim.opt.ambiwidth = "single"
-vim.opt.autoread = true
-vim.opt.backup = false
-vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
-vim.opt.fsync = false
-vim.opt.hidden = true
-vim.opt.path:append({ ".**100", "/usr/include**100" })
-vim.opt.shell = "/usr/bin/zsh"
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-vim.opt.wrap = false
-vim.opt.writebackup = true
-
 -- Indent
 vim.opt.autoindent = true
 vim.opt.copyindent = true
@@ -47,6 +30,23 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.opt.tabstop = 2
 	end,
 })
+
+-- Miscellaneous
+vim.opt.ambiwidth = "single"
+vim.opt.autoread = true
+vim.opt.backup = false
+vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.fsync = false
+vim.opt.hidden = true
+vim.opt.path:append({ ".**100", "/usr/include**100" })
+vim.opt.shell = "zsh"
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.swapfile = false
+vim.opt.wrap = false
+vim.opt.writebackup = true
 
 -- Netrw
 vim.g.netrw_banner = 0
@@ -72,24 +72,42 @@ vim.g.did_install_default_menus = 1
 vim.g.did_install_syntax_menu = 1
 vim.g.did_load_ftplugin = 1
 vim.g.loaded_2html_plugin = 1
+vim.g.loaded_getscript = 1
+vim.g.loaded_getscriptPlugin = 1
 vim.g.loaded_gzip = 1
+vim.g.loaded_logipat = 1
+vim.g.loaded_logiPat = 1
 vim.g.loaded_man = 1
 vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
 vim.g.loaded_remote_plugins = 1
+vim.g.loaded_rrhelper = 1
 vim.g.loaded_shada_plugin = 1
 vim.g.loaded_spellfile_plugin = 1
 vim.g.loaded_tar = 1
 vim.g.loaded_tarPlugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
+vim.g.loaded_vimball = 1
+vim.g.loaded_vimballPlugin = 1
 vim.g.loaded_zip = 1
 vim.g.loaded_zipPlugin = 1
+vim.g.loadedzip = 1
 vim.g.skip_loading_mswin = 1
+vim.g.ebuild_create_on_empty = 1
+vim.g.glep_create_on_empty = 1
+vim.g.loaded_gentoo_common = 1
+vim.g.loaded_newebuild = 1
+vim.g.loaded_newglep = 1
+vim.g.loaded_newinitd = 1
+vim.g.loaded_newmetadata = 1
 
 -- Tags
 vim.opt.tags:append({ "./tags;", "tags;" })
 
 -- Terminal
+vim.opt.ttyfast = true
+vim.opt.lazyredraw = true
+
 vim.api.nvim_create_augroup("terminal", {})
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = "terminal",

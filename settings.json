@@ -5,6 +5,7 @@
     "~/.config/sway",
     "~/.config/tmux",
     "~/.config/waybar",
-    "~/.zshrc"
+    "~/.zshrc",
+    "~/.vimrc"
   ]
 }

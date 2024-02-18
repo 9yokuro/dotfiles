@@ -10,6 +10,7 @@ FILES: Final[list[str]] = [
     "~/.config/tmux",
     "~/.config/waybar",
     "~/.zshrc",
+    "~/.vimrc",
 ]
 
 

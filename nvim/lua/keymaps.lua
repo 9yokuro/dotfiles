@@ -4,7 +4,7 @@
 vim.keymap.set("n", "[b", "<Cmd>bprevious<CR>")
 vim.keymap.set("n", "]b", "<Cmd>bnext<CR>")
 
--- General
+-- Miscellaneous
 vim.keymap.set("i", "jj", "<Esc>")
 
 -- Netrw
