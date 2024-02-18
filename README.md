@@ -1,4 +1,5 @@
 # dotfiles
+
 ![screenshot](./images/terminal.png)
 
 ## Contents
@@ -7,17 +8,17 @@
 - Sway
 - Tmux
 - Waybar
-- Vim
 - Zsh
 
 ## Requirements
+[!NOTE]
 Recommend the latest version if not specified.
 
 ### General
-- A Unix-like operating system (Tested on [Gentoo Linux](https://www.gentoo.org/) and [Arch Linux](https://archlinux.org/).)
+- A Unix-like operating system
 - [Nerd Font](https://www.nerdfonts.com/) (Recommended: Iosevka Nerd Font)
 
-### Neovim/Vim
+### Neovim
 - [ctags](https://github.com/universal-ctags/ctags)
 
 ### Sway
@@ -30,13 +31,13 @@ Recommend the latest version if not specified.
 ## Installation
 Use [sdmw](https://github.com/p1486/sdmw):
 ```console
-git clone https://github.com/p1486/dotfiles/tree/main
+git clone https://github.com/p1486/dotfiles
 cd dotfiles
 sdmw install
 ```
 Or use `scripts/setup.py`
 ```console
-git clone https://github.com/p1486/dotfiles/tree/main
+git clone https://github.com/p1486/dotfiles
 cd dotfiles
 python scripts/setup.py install
 ```

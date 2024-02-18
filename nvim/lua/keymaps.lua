@@ -1,36 +1,36 @@
 -- Keymaps
 
+-- Buffer
+vim.keymap.set("n", "[b", "<Cmd>bprevious<CR>")
+vim.keymap.set("n", "]b", "<Cmd>bnext<CR>")
+
 -- General
 vim.keymap.set("i", "jj", "<Esc>")
 
--- Window
-vim.keymap.set("n", "ss", "<cmd>split<CR>")
-vim.keymap.set("n", "sv", "<cmd>vsplit<CR>")
-vim.keymap.set("n", "sc", "<cmd>wincmd c<CR>")
-vim.keymap.set("n", "sh", "<cmd>wincmd h<CR>")
-vim.keymap.set("n", "sj", "<cmd>wincmd j<CR>")
-vim.keymap.set("n", "sk", "<cmd>wincmd k<CR>")
-vim.keymap.set("n", "sl", "<cmd>wincmd l<CR>")
-vim.keymap.set("n", "sH", "<cmd>wincmd H<CR>")
-vim.keymap.set("n", "sJ", "<cmd>wincmd J<CR>")
-vim.keymap.set("n", "sK", "<cmd>wincmd K<CR>")
-vim.keymap.set("n", "sL", "<cmd>wincmd L<CR>")
-
--- Buffer
-vim.keymap.set("n", "[b", "<cmd>bprevious<CR>")
-vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
+-- Netrw
+vim.keymap.set("n", "<C-n>", "<Cmd>silent Lexplore<CR>")
 
 -- QuickFix
-vim.keymap.set("n", "[q", "<cmd>cprevious<CR>")
-vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
+vim.keymap.set("n", "[q", "<Cmd>cprevious<CR>")
+vim.keymap.set("n", "]q", "<Cmd>cnext<CR>")
 
 -- Terminal
-vim.keymap.set("n", "tt", "<cmd>terminal<CR>")
-vim.keymap.set("n", "ts", "<cmd>belowright new<CR><cmd>terminal<CR>")
-vim.keymap.set("n", "tv", "<cmd>vsplit<CR><cmd>terminal<CR>")
+vim.keymap.set("n", "tt", "<Cmd>terminal<CR>")
+vim.keymap.set("n", "ts", "<Cmd>belowright new<CR><Cmd>terminal<CR>")
+vim.keymap.set("n", "tv", "<Cmd>vsplit<CR><Cmd>terminal<CR>")
 
 -- VimGrep
 vim.keymap.set("n", "<Space>g", ":silent vimgrep ")
 
--- Netrw
-vim.keymap.set("n", "<C-n>", "<cmd>silent Lexplore<CR>")
+-- Window
+vim.keymap.set("n", "ss", "<Cmd>split<CR>")
+vim.keymap.set("n", "sv", "<Cmd>vsplit<CR>")
+vim.keymap.set("n", "sc", "<Cmd>wincmd c<CR>")
+vim.keymap.set("n", "sh", "<Cmd>wincmd h<CR>")
+vim.keymap.set("n", "sj", "<Cmd>wincmd j<CR>")
+vim.keymap.set("n", "sk", "<Cmd>wincmd k<CR>")
+vim.keymap.set("n", "sl", "<Cmd>wincmd l<CR>")
+vim.keymap.set("n", "sH", "<Cmd>wincmd H<CR>")
+vim.keymap.set("n", "sJ", "<Cmd>wincmd J<CR>")
+vim.keymap.set("n", "sK", "<Cmd>wincmd K<CR>")
+vim.keymap.set("n", "sL", "<Cmd>wincmd L<CR>")

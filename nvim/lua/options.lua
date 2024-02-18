@@ -1,5 +1,17 @@
 -- Options
 
+-- Appearance
+vim.api.nvim_command("syntax off")
+vim.g.termguicolors = true
+vim.opt.background = "dark"
+vim.opt.cmdheight = 0
+vim.opt.laststatus = 0
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.ruler = false
+vim.opt.showtabline = 0
+vim.opt.title = false
+
 -- General
 vim.opt.ambiwidth = "single"
 vim.opt.autoread = true
@@ -36,40 +48,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
--- Appearance
-vim.api.nvim_command("syntax off")
-vim.g.termguicolors = true
-vim.opt.background = "dark"
-vim.opt.cmdheight = 0
-vim.opt.laststatus = 0
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.ruler = false
-vim.opt.showtabline = 0
-vim.opt.title = false
-
--- Search
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.smartcase = true
-
--- Terminal
-vim.api.nvim_create_augroup("terminal", {})
-vim.api.nvim_create_autocmd("TermOpen", {
-	group = "terminal",
-	callback = function()
-		vim.api.nvim_command("startinsert")
-		vim.opt.relativenumber = false
-		vim.opt.number = false
-	end,
-})
-
-vim.api.nvim_create_autocmd("TermClose", {
-	group = "terminal",
-	command = "bdelete",
-})
-
 -- Netrw
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3
@@ -82,10 +60,13 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 	command = "silent cwindow",
 })
 
--- Tags
-vim.opt.tags:append({ "./tags;", "tags;" })
+-- Search
+vim.opt.hlsearch = true
+vim.opt.ignorecase = true
+vim.opt.incsearch = true
+vim.opt.smartcase = true
 
--- Default plugins
+-- Standard plugins
 vim.g.did_indent_on = 1
 vim.g.did_install_default_menus = 1
 vim.g.did_install_syntax_menu = 1
@@ -98,9 +79,28 @@ vim.g.loaded_matchparen = 1
 vim.g.loaded_remote_plugins = 1
 vim.g.loaded_shada_plugin = 1
 vim.g.loaded_spellfile_plugin = 1
-vim.g.loaded_tarPlugin = 1
 vim.g.loaded_tar = 1
+vim.g.loaded_tarPlugin = 1
 vim.g.loaded_tutor_mode_plugin = 1
-vim.g.loaded_zipPlugin = 1
 vim.g.loaded_zip = 1
+vim.g.loaded_zipPlugin = 1
 vim.g.skip_loading_mswin = 1
+
+-- Tags
+vim.opt.tags:append({ "./tags;", "tags;" })
+
+-- Terminal
+vim.api.nvim_create_augroup("terminal", {})
+vim.api.nvim_create_autocmd("TermOpen", {
+	group = "terminal",
+	callback = function()
+		vim.api.nvim_command("startinsert")
+		vim.opt.number = false
+		vim.opt.relativenumber = false
+	end,
+})
+
+vim.api.nvim_create_autocmd("TermClose", {
+	group = "terminal",
+	command = "bdelete",
+})
