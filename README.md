@@ -10,9 +10,10 @@
 - Waybar
 - Zsh
 
-## Requirements
 [!NOTE]
 Recommend the latest version if not specified.
+
+## Requirements
 
 ### General
 - A Unix-like operating system
