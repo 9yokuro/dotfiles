@@ -9,7 +9,7 @@
 - Tmux
 - Waybar
 - Zsh
-
+- Vim
 
 ## Requirements
 > [!NOTE]
@@ -27,6 +27,10 @@
 - [grim](https://git.sr.ht/~emersion/grim)
 - [source sans](https://github.com/adobe-fonts/source-sans)
 - [swaybg](https://github.com/swaywm/swaybg)
+
+### Vim
+- version >= 9.0 (`.vimrc` is written in Vim9 script.)
+- ctags
 
 ## Installation
 Use [sdmw](https://github.com/p1486/sdmw):
