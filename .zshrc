@@ -9,6 +9,7 @@ path=(~/.cargo/bin/ ~/go/bin ~/android/platform-tools $path)
 export PATH
 
 # Alias
+# git
 alias g="git"
 alias ga="git add"
 alias gb="git branch"
@@ -18,6 +19,11 @@ alias gp="git push"
 alias gP="git pull"
 alias gs="git status"
 alias gS="git switch"
+alias wr="wrm remove"
+alias wR="wrm restore"
+alias wd="wrm delete"
+alias we="wrm empty"
+alias wl="wrm list"
 alias v="nvim"
 alias doas="doas "
 alias e="exit"

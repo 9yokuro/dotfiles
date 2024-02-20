@@ -22,9 +22,9 @@ vim.opt.smarttab = true
 vim.opt.tabstop = 4
 
 vim.api.nvim_create_augroup("indent", {})
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd("FileType", {
 	group = "indent",
-	pattern = { "*.json", "*.yaml", "*.yml" },
+	pattern = { "json", "yaml" },
 	callback = function()
 		vim.opt.shiftwidth = 2
 		vim.opt.tabstop = 2
