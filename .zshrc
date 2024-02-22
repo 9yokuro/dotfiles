@@ -19,11 +19,6 @@ alias gp="git push"
 alias gP="git pull"
 alias gs="git status"
 alias gS="git switch"
-alias wr="wrm remove"
-alias wR="wrm restore"
-alias wd="wrm delete"
-alias we="wrm empty"
-alias wl="wrm list"
 alias v="nvim"
 alias doas="doas "
 alias e="exit"
@@ -73,7 +68,7 @@ setopt prompt_subst
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "%F{yellow}! "
 zstyle ':vcs_info:git:*' unstagedstr "%F{yellow}󰦒 "
-zstyle ':vcs_info:*' formats "on %F{green}%c%u%b "
+zstyle ':vcs_info:*' formats "%F{green}%c%u%b "
 zstyle ':vcs_info:*' actionformats '[%b|%a]'
 PROMPT='%K{black}%F{magenta}%n@%m%f %F{cyan}%d%f '\$vcs_info_msg_0_'%f at %F{blue}%*%f ;
 %F{blue}~%f %F{green}󰅂%f%k '

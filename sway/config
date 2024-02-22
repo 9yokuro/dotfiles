@@ -9,22 +9,22 @@ set $term alacritty
 
 set $menu bemenu-run \
 --fn "SourceSans3 12" \
---tb "#000810" \
+--tb "#00081063" \
 --tf "#eea47f" \
---fb "#000810" \
+--fb "#00081063" \
 --ff "#eedcd2" \
---nb "#000810" \
+--nb "#00081063" \
 --nf "#eedcd2" \
---hb "#000810" \
+--hb "#00081063" \
 --hf "#007ce9" \
---fbb "#000810" \
+--fbb "#00081063" \
 --fbf "#007ce9" \
---sb "#000810" \
+--sb "#00081063" \
 --sf "#007ce9" \
---ab "#000810" \
+--ab "#00081063" \
 --af "#eedcd2" \
 --bdr "#001629" \
--w -l 5 -p bemenu -M 800 -B 4 -c
+-w -l 3 -p "" -M 800 -B 4 -c
 
 output * bg ~/.config/sway/star.jpg fill
 

@@ -1,56 +1,54 @@
 -- Options
+local opt = vim.opt
 
 -- Appearance
 vim.api.nvim_command("syntax off")
 vim.g.termguicolors = true
-vim.opt.background = "dark"
-vim.opt.cmdheight = 0
-vim.opt.laststatus = 0
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.ruler = false
-vim.opt.showtabline = 0
-vim.opt.title = false
+opt.background = "dark"
+opt.cmdheight = 0
+opt.laststatus = 0
+opt.number = true
+opt.relativenumber = true
+opt.ruler = false
+opt.showtabline = 0
+opt.title = false
 
 -- Indent
-vim.opt.autoindent = true
-vim.opt.copyindent = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.smartindent = true
-vim.opt.smarttab = true
-vim.opt.tabstop = 4
+opt.autoindent = true
+opt.copyindent = true
+opt.expandtab = true
+opt.shiftwidth = 4
+opt.smartindent = true
+opt.smarttab = true
+opt.tabstop = 4
 
 vim.api.nvim_create_augroup("indent", {})
 vim.api.nvim_create_autocmd("FileType", {
 	group = "indent",
 	pattern = { "json", "yaml" },
 	callback = function()
-		vim.opt.shiftwidth = 2
-		vim.opt.tabstop = 2
+		opt.shiftwidth = 2
+		opt.tabstop = 2
 	end,
 })
 
 -- Miscellaneous
-vim.opt.ambiwidth = "single"
-vim.opt.autoread = true
-vim.opt.backup = false
-vim.opt.clipboard:append({ "unnamed", "unnamedplus" })
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8"
-vim.opt.fsync = false
-vim.opt.hidden = true
-vim.opt.path:append({ ".**100", "/usr/include**100" })
-vim.opt.shell = "zsh"
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.swapfile = false
-vim.opt.wrap = false
-vim.opt.writebackup = true
-
--- Netrw
-vim.g.netrw_banner = 0
-vim.g.netrw_liststyle = 3
+opt.ambiwidth = "single"
+opt.autoread = true
+opt.backup = false
+opt.clipboard:append({ "unnamed", "unnamedplus" })
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8"
+opt.fsync = false
+opt.hidden = true
+opt.path:append({ ".**100", "/usr/include**100" })
+opt.shell = "zsh"
+opt.splitbelow = true
+opt.splitright = true
+opt.swapfile = false
+opt.wildmenu = true
+opt.wrap = false
+opt.writebackup = true
 
 -- QuickFix
 vim.api.nvim_create_augroup("quickfix", {})
@@ -61,10 +59,10 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 })
 
 -- Search
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.smartcase = true
+opt.hlsearch = true
+opt.ignorecase = true
+opt.incsearch = true
+opt.smartcase = true
 
 -- Standard plugins
 vim.g.did_indent_on = 1
@@ -80,6 +78,8 @@ vim.g.loaded_logiPat = 1
 vim.g.loaded_man = 1
 vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_remote_plugins = 1
 vim.g.loaded_rrhelper = 1
 vim.g.loaded_shada_plugin = 1
@@ -101,20 +101,17 @@ vim.g.loaded_newglep = 1
 vim.g.loaded_newinitd = 1
 vim.g.loaded_newmetadata = 1
 
--- Tags
-vim.opt.tags:append({ "./tags;", "tags;" })
-
 -- Terminal
-vim.opt.ttyfast = true
-vim.opt.lazyredraw = true
+opt.ttyfast = true
+opt.lazyredraw = true
 
 vim.api.nvim_create_augroup("terminal", {})
 vim.api.nvim_create_autocmd("TermOpen", {
 	group = "terminal",
 	callback = function()
 		vim.api.nvim_command("startinsert")
-		vim.opt.number = false
-		vim.opt.relativenumber = false
+		opt.number = false
+		opt.relativenumber = false
 	end,
 })
 

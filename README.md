@@ -7,6 +7,7 @@
 - Neovim
 - Sway
 - Tmux
+- Vim
 - Waybar
 - Zsh
 
@@ -17,9 +18,6 @@
 ### General
 - A Unix-like operating system
 - [Nerd Font](https://www.nerdfonts.com/) (Recommended: Iosevka Nerd Font)
-
-### Neovim
-- [ctags](https://github.com/universal-ctags/ctags)
 
 ### Sway
 - [bemenu](https://github.com/Cloudef/bemenu)
