@@ -7,24 +7,15 @@ set $right l
 
 set $term alacritty 
 
-set $menu bemenu-run \
---fn "SourceSans3 12" \
---tb "#00081063" \
---tf "#eea47f" \
---fb "#00081063" \
---ff "#eedcd2" \
---nb "#00081063" \
---nf "#eedcd2" \
---hb "#00081063" \
---hf "#007ce9" \
---fbb "#00081063" \
---fbf "#007ce9" \
---sb "#00081063" \
---sf "#007ce9" \
---ab "#00081063" \
---af "#eedcd2" \
---bdr "#001629" \
--w -l 3 -p "" -M 800 -B 4 -c
+set $menu fuzzel \
+--font=SourceSans3 \
+--background-color=000810ff \
+--text-color=eedcd2ff \
+--match-color=007ce9ff \
+--selection-color=eedcd2ff \
+--selection-text-color=000810ff \
+--selection-match-color=007ce9ff \
+--border-color=007ce9ff \
 
 output * bg ~/.config/sway/star.jpg fill
 
@@ -123,5 +114,12 @@ gaps inner 10
 
 exec waybar
 exec fcitx5
+exec mako \
+--font "SourceSans3" \
+--background-color "#000810" \
+--text-color "#eedcd2" \
+--border-color "#007ce9" \
+--border-radius 10 \
+--border-size 1 \
 
 include /etc/sway/config.d/*

@@ -20,10 +20,16 @@
 - [Nerd Font](https://www.nerdfonts.com/) (Recommended: Iosevka Nerd Font)
 
 ### Sway
-- [bemenu](https://github.com/Cloudef/bemenu)
+- [fuzzel](https://codeberg.org/dnkl/fuzzel)
 - [grim](https://git.sr.ht/~emersion/grim)
+- [mako](https://github.com/emersion/mako)
 - [source sans](https://github.com/adobe-fonts/source-sans)
 - [swaybg](https://github.com/swaywm/swaybg)
+
+### Neovim
+- Nvim 0.9.2 or later
+- `git`
+- A C compiler and libstdc++
 
 ## Installation
 Use [sdmw](https://github.com/p1486/sdmw):
@@ -32,7 +38,8 @@ git clone https://github.com/p1486/dotfiles
 cd dotfiles
 sdmw install
 ```
-Or use `scripts/setup.py`
+
+Or use `scripts/setup.py`:
 ```console
 git clone https://github.com/p1486/dotfiles
 cd dotfiles
