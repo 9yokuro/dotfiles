@@ -1,10 +1,18 @@
 -- Options
+local augroup = vim.api.nvim_create_augroup
+
+local autocmd = vim.api.nvim_create_autocmd
+
+local cmd = vim.cmd
+
+local g = vim.g
+
 local opt = vim.opt
 
 -- Appearance
-vim.cmd.syntax("on")
+cmd.syntax("on")
 
-vim.g.termguicolors = true
+g.termguicolors = true
 
 opt.background = "dark"
 
@@ -43,9 +51,9 @@ opt.tabstop = 4
 
 local group_name_indent = "indent"
 
-vim.api.nvim_create_augroup(group_name_indent, {})
+augroup(group_name_indent, {})
 
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
 	group = group_name_indent,
 	pattern = { "json", "yaml" },
 	callback = function()
@@ -90,9 +98,9 @@ opt.writebackup = true
 -- Quickfix
 local group_name_quickfix = "quickfix"
 
-vim.api.nvim_create_augroup(group_name_quickfix, {})
+augroup(group_name_quickfix, {})
 
-vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+autocmd("QuickFixCmdPost", {
 	group = group_name_quickfix,
 	pattern = { "*grep*", "*make*" },
 	command = "silent cwindow",
@@ -108,75 +116,75 @@ opt.incsearch = true
 opt.smartcase = true
 
 -- Standard_plugins
-vim.g.did_indent_on = 1
+g.did_indent_on = 1
 
-vim.g.did_install_default_menus = 1
+g.did_install_default_menus = 1
 
-vim.g.did_install_syntax_menu = 1
+g.did_install_syntax_menu = 1
 
-vim.g.did_load_ftplugin = 1
+g.did_load_ftplugin = 1
 
-vim.g.ebuild_create_on_empty = 1
+g.ebuild_create_on_empty = 1
 
-vim.g.glep_create_on_empty = 1
+g.glep_create_on_empty = 1
 
-vim.g.loaded_2html_plugin = 1
+g.loaded_2html_plugin = 1
 
-vim.g.loaded_gentoo_common = 1
+g.loaded_gentoo_common = 1
 
-vim.g.loaded_getscript = 1
+g.loaded_getscript = 1
 
-vim.g.loaded_getscriptPlugin = 1
+g.loaded_getscriptPlugin = 1
 
-vim.g.loaded_gzip = 1
+g.loaded_gzip = 1
 
-vim.g.loaded_logipat = 1
+g.loaded_logipat = 1
 
-vim.g.loaded_logiPat = 1
+g.loaded_logiPat = 1
 
-vim.g.loaded_man = 1
+g.loaded_man = 1
 
-vim.g.loaded_matchit = 1
+g.loaded_matchit = 1
 
-vim.g.loaded_matchparen = 1
+g.loaded_matchparen = 1
 
-vim.g.loaded_netrw = 1
+g.loaded_netrw = 1
 
-vim.g.loaded_netrwPlugin = 1
+g.loaded_netrwPlugin = 1
 
-vim.g.loaded_newebuild = 1
+g.loaded_newebuild = 1
 
-vim.g.loaded_newglep = 1
+g.loaded_newglep = 1
 
-vim.g.loaded_newinitd = 1
+g.loaded_newinitd = 1
 
-vim.g.loaded_newmetadata = 1
+g.loaded_newmetadata = 1
 
-vim.g.loaded_remote_plugins = 1
+g.loaded_remote_plugins = 1
 
-vim.g.loaded_rrhelper = 1
+g.loaded_rrhelper = 1
 
-vim.g.loaded_shada_plugin = 1
+g.loaded_shada_plugin = 1
 
-vim.g.loaded_spellfile_plugin = 1
+g.loaded_spellfile_plugin = 1
 
-vim.g.loaded_tar = 1
+g.loaded_tar = 1
 
-vim.g.loaded_tarPlugin = 1
+g.loaded_tarPlugin = 1
 
-vim.g.loaded_tutor_mode_plugin = 1
+g.loaded_tutor_mode_plugin = 1
 
-vim.g.loaded_vimball = 1
+g.loaded_vimball = 1
 
-vim.g.loaded_vimballPlugin = 1
+g.loaded_vimballPlugin = 1
 
-vim.g.loaded_zip = 1
+g.loaded_zip = 1
 
-vim.g.loaded_zipPlugin = 1
+g.loaded_zipPlugin = 1
 
-vim.g.loadedzip = 1
+g.loadedzip = 1
 
-vim.g.skip_loading_mswin = 1
+g.skip_loading_mswin = 1
 
 -- Terminal
 opt.lazyredraw = true
@@ -185,12 +193,12 @@ opt.ttyfast = true
 
 local group_name_terminal = "terminal"
 
-vim.api.nvim_create_augroup(group_name_terminal, {})
+augroup(group_name_terminal, {})
 
-vim.api.nvim_create_autocmd("TermOpen", {
+autocmd("TermOpen", {
 	group = group_name_terminal,
 	callback = function()
-		vim.cmd.startinsert()
+		cmd.startinsert()
 
 		opt.number = false
 
@@ -198,7 +206,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("TermClose", {
+autocmd("TermClose", {
 	group = group_name_terminal,
 	command = "bdelete",
 })

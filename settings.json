@@ -1,6 +1,7 @@
 {
   "paths": [
     "~/.config/alacritty",
+    "~/.config/home-manager",
     "~/.config/nix/",
     "~/.config/nvim",
     "~/.config/sway",
