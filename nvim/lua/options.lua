@@ -55,7 +55,7 @@ augroup(group_name_indent, {})
 
 autocmd("FileType", {
 	group = group_name_indent,
-	pattern = { "json", "yaml" },
+	pattern = { "json", "nix", "yaml" },
 	callback = function()
 		opt.shiftwidth = 2
 		opt.tabstop = 2
@@ -115,7 +115,7 @@ opt.incsearch = true
 
 opt.smartcase = true
 
--- Standard_plugins
+-- Standard plugins
 g.did_indent_on = 1
 
 g.did_install_default_menus = 1

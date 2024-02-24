@@ -11,6 +11,7 @@ FILES: Final[list[str]] = [
     "~/.config/sway",
     "~/.config/tmux",
     "~/.config/waybar",
+    "~/.vimrc",
     "~/.zshrc",
 ]
 

@@ -4,10 +4,12 @@
 
 ## Contents
 - Alacritty
+- Nix
 - Neovim
 - Sway
 - Tmux
 - Waybar
+- Vim
 - Zsh
 
 ## Requirements
