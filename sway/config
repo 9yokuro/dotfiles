@@ -11,7 +11,7 @@ set $menu fuzzel \
 --font=SourceSans3 \
 --background-color=000810ff \
 --text-color=eedcd2ff \
---match-color=007ce9ff \
+--match-color=eea47fff \
 --selection-color=eedcd2ff \
 --selection-text-color=000810ff \
 --selection-match-color=007ce9ff \

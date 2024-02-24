@@ -5,11 +5,10 @@ fi
 
 # Path
 typeset -U path PATH
-path=(~/.cargo/bin/ ~/go/bin ~/android/platform-tools $path)
+path=(~/.cargo/bin/ ~/go/bin $path)
 export PATH
 
 # Alias
-# git
 alias g="git"
 alias ga="git add"
 alias gb="git branch"

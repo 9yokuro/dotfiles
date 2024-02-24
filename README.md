@@ -7,7 +7,6 @@
 - Neovim
 - Sway
 - Tmux
-- Vim
 - Waybar
 - Zsh
 

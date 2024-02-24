@@ -1,7 +1,7 @@
 -- Plugins
 
 -- Bootstrap plum.nvim
-local plumpath = vim.fn.stdpath("data") .. "/site/pack/plum/start/plum.nvim"
+local plumpath = vim.fn.stdpath("data") .. "/site/pack/plum/opt/plum.nvim"
 
 if not vim.loop.fs_stat(plumpath) then
 	vim.fn.system({
@@ -49,6 +49,7 @@ require("nvim-treesitter.configs").setup({
 		"json",
 		"yaml",
 		"toml",
+		"nix",
 	},
 	sync_install = false,
 	auto_install = true,

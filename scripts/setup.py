@@ -5,12 +5,12 @@ from typing import Final
 
 FILES: Final[list[str]] = [
     "~/.config/alacritty",
+    "~/.config/nix",
     "~/.config/nvim",
     "~/.config/sway",
     "~/.config/tmux",
     "~/.config/waybar",
     "~/.zshrc",
-    "~/.vimrc",
 ]
 
 
