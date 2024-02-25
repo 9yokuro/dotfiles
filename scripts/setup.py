@@ -10,6 +10,7 @@ FILES: Final[list[str]] = [
     "~/.config/nvim",
     "~/.config/sway",
     "~/.config/tmux",
+    "~/.config/vim",
     "~/.config/waybar",
     "~/.vimrc",
     "~/.zshrc",
@@ -75,7 +76,10 @@ def parse_arguments(files: list[str]) -> None:
 
     parser.add_argument("actions", type=Subcommands, choices=list(Subcommands))
     parser.add_argument(
-        "-q", "--quiet", action="store_true", help="Do not print log messages",
+        "-q",
+        "--quiet",
+        action="store_true",
+        help="Do not print log messages",
     )
     parser.add_argument(
         "-p",

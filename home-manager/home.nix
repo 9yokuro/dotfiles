@@ -1,6 +1,16 @@
 { config, pkgs, ... }:
 
 {
+  # nixpkgs.overlays = [
+  #   (self: super: {
+  #     stdenv = super.withCFlags [ "-O3" "-pipe" "-march=native" ] super.stdenv;
+  #   })
+  #
+  #   (self: super: {
+  #     stdenv = super.impureUseNativeOptimizations super.stdenv;
+  #   })
+  # ];
+
   home.username = "9yokuro";
 
   home.homeDirectory = "/home/9yokuro";
@@ -19,6 +29,7 @@
     source-sans
 
     # Languages
+    deno
     go
     nodejs_21
     rustup

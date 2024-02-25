@@ -6,6 +6,7 @@
     "~/.config/nvim",
     "~/.config/sway",
     "~/.config/tmux",
+    "~/.config/vim",
     "~/.config/waybar",
     "~/.vimrc",
     "~/.zshrc"

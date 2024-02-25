@@ -1,5 +1,54 @@
 vim9script
 
+# Plugins
+const dpp_base = "~/.cache/dpp/"
+
+const dpp_path = dpp_base .. "repos/github.com/"
+
+const dpp_src = dpp_base .. "repos/github.com/Shougo/dpp.vim"
+
+const dpp_extensions = [
+    "Shougo/dpp-ext-installer",
+    "Shougo/dpp-ext-lazy",
+    "Shougo/dpp-ext-toml",
+    "Shougo/dpp-protocol-git",
+]
+
+const denops_src = dpp_base .. "repos/github.com/vim-denops/denops.vim"
+
+const github = "https://github.com/"
+
+if isdirectory(dpp_src) == 0
+    system("git clone --depth 1 https://github.com/Shougo/dpp.vim " .. dpp_src)
+endif
+
+execute "set runtimepath^=" .. dpp_src
+
+for extension in dpp_extensions
+    var url = github .. extension
+
+    var path = dpp_path .. extension
+
+    if isdirectory(path) == 0
+        system("git clone --depth 1 " .. url .. " " .. path)
+    endif
+
+    execute "set runtimepath^=" .. path
+endfor
+
+if isdirectory(denops_src) == 0
+    system("git clone --depth 1 https://github.com/vim-denops/denops.vim " .. denops_src)
+endif
+
+if dpp_base->dpp#min#load_state()
+    execute "set runtimepath^=" .. denops_src
+
+    augroup dpp
+        autocmd!
+        autocmd User DenopsReady call dpp#make_state(dpp_base, "~/.config/vim/dpp.ts")
+    augroup END
+endif
+
 # Options
 
 # Appearance
@@ -172,6 +221,9 @@ nnoremap [b <Cmd>bprevious<CR>
 
 nnoremap ]b <Cmd>bnext<CR>
 
+# Fern
+nnoremap <Space>f <Cmd>Fern . -drawer -reveal=% -toggle<CR>
+
 # Miscellaneous
 g:mapleader = ";"
 
@@ -214,3 +266,5 @@ nnoremap sJ <Cmd>wincmd J<CR>
 nnoremap sK <Cmd>wincmd K<CR>
 
 nnoremap sL <Cmd>wincmd L<CR>
+
+colorscheme onedark
