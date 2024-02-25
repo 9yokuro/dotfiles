@@ -49,6 +49,8 @@ if dpp_base->dpp#min#load_state()
     augroup END
 endif
 
+colorscheme onedark
+
 # Options
 
 # Appearance
@@ -266,5 +268,3 @@ nnoremap sJ <Cmd>wincmd J<CR>
 nnoremap sK <Cmd>wincmd K<CR>
 
 nnoremap sL <Cmd>wincmd L<CR>
-
-colorscheme onedark

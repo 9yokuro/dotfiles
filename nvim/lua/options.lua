@@ -7,6 +7,8 @@ local cmd = vim.cmd
 
 local g = vim.g
 
+local group = "init.lua"
+
 local opt = vim.opt
 
 -- Appearance
@@ -49,12 +51,10 @@ opt.smarttab = true
 
 opt.tabstop = 4
 
-local group_name_indent = "indent"
-
-augroup(group_name_indent, {})
+augroup(group, {})
 
 autocmd("FileType", {
-	group = group_name_indent,
+	group = group,
 	pattern = { "json", "nix", "yaml" },
 	callback = function()
 		opt.shiftwidth = 2
@@ -96,12 +96,10 @@ opt.wrap = false
 opt.writebackup = true
 
 -- Quickfix
-local group_name_quickfix = "quickfix"
-
-augroup(group_name_quickfix, {})
+augroup(group, {})
 
 autocmd("QuickFixCmdPost", {
-	group = group_name_quickfix,
+	group = group,
 	pattern = { "*grep*", "*make*" },
 	command = "silent cwindow",
 })
@@ -191,12 +189,10 @@ opt.lazyredraw = true
 
 opt.ttyfast = true
 
-local group_name_terminal = "terminal"
-
-augroup(group_name_terminal, {})
+augroup(group, {})
 
 autocmd("TermOpen", {
-	group = group_name_terminal,
+	group = group,
 	callback = function()
 		cmd.startinsert()
 
@@ -207,6 +203,6 @@ autocmd("TermOpen", {
 })
 
 autocmd("TermClose", {
-	group = group_name_terminal,
+	group = group,
 	command = "bdelete",
 })

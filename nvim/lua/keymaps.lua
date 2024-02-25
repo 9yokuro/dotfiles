@@ -6,6 +6,9 @@ map("n", "[b", "<Cmd>bprevious<CR>")
 
 map("n", "]b", "<Cmd>bnext<CR>")
 
+-- Fern
+map("n", "<Space>f", "<Cmd>Fern . -drawer -toggle -reveal=%<CR>")
+
 -- Miscellaneous
 vim.g.mapleader = ";"
 
@@ -15,6 +18,17 @@ map("i", "jj", "<Cmd>stopinsert<CR>")
 map("n", "[q", "<Cmd>cprevious<CR>")
 
 map("n", "]q", "<Cmd>cnext<CR>")
+
+-- Telescope
+local telescope = require("telescope.builtin")
+
+map("n", "<leader>ff", telescope.find_files, {})
+
+map("n", "<leader>fg", telescope.live_grep, {})
+
+map("n", "<leader>fb", telescope.buffers, {})
+
+map("n", "<leader>fh", telescope.help_tags, {})
 
 -- Terminal
 map("n", "tt", "<Cmd>terminal<CR>")

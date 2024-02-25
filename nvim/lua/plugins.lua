@@ -1,4 +1,15 @@
 -- Plugins
+local augroup = vim.api.nvim_create_augroup
+
+local autocmd = vim.api.nvim_create_autocmd
+
+local cmd = vim.cmd
+
+local g = vim.g
+
+local group = "init.lua"
+
+local opt = vim.opt
 
 -- Bootstrap plum.nvim
 local plumpath = vim.fn.stdpath("data") .. "/site/pack/plum/opt/plum.nvim"
@@ -14,13 +25,19 @@ if not vim.loop.fs_stat(plumpath) then
 	})
 end
 
-vim.cmd.packadd("plum.nvim")
+cmd.packadd("plum.nvim")
 
 -- Plugin manager
 require("plum").setup({
 	"9yokuro/plum.nvim",
 	"9yokuro/afmt.nvim",
 	"folke/tokyonight.nvim",
+	"lambdalisue/fern.vim",
+	"lambdalisue/fern-renderer-nerdfont.vim",
+	"lambdalisue/nerdfont.vim",
+	"nvim-lua/plenary.nvim",
+	"nvim-telescope/telescope.nvim",
+	"nvim-tree/nvim-web-devicons",
 	"nvim-treesitter/nvim-treesitter",
 })
 
@@ -30,7 +47,7 @@ require("tokyonight").setup({
 	transparent = true,
 })
 
-vim.cmd.colorscheme("tokyonight")
+cmd.colorscheme("tokyonight")
 
 -- Tree sitter
 require("nvim-treesitter.configs").setup({
@@ -75,4 +92,19 @@ require("afmt").setup({
 		pattern = "*.lua",
 		command = "stylua",
 	},
+})
+
+-- Fern
+g["fern#renderer"] = "nerdfont"
+
+augroup(group, {})
+
+autocmd("FileType", {
+	group = group,
+	pattern = "fern",
+	callback = function()
+		opt.number = false
+
+		opt.relativenumber = false
+	end,
 })

@@ -20,14 +20,22 @@
 ## Neovim
 ### Requirements
 - **Nvim 0.9.2** or later
-- `git`
+- Git
 - A C compiler and libstdc++
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fd](https://github.com/sharkdp/fd)
 
 ### Plugins
-- [plum.nvim](https://github.com/9yokuro/plum.nvim)
 - [afmt.nvim](https://github.com/9yokuro/afmt.nvim)
-- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
+- [fern.vim](https://github.com/lambdalisue/fern.vim)
+- [fern-renderer-nerdfont.vim](https://github.com/lambdalisue/fern-renderer-nerdfont.vim)
+- [nerdfont.vim](https://github.com/lambdalisue/nerdfont.vim)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
+- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
+- [plum.nvim](https://github.com/9yokuro/plum.nvim)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 
 ## Sway
 ### Requirements

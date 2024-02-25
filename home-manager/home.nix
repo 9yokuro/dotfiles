@@ -38,6 +38,8 @@
     # Tools
     btop
     fastfetch
+    fd
+    ripgrep
     sl
     tmux
     tokei
