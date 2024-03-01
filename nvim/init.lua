@@ -1,7 +1,9 @@
 vim.loader.enable()
 
-require("plugins")
+require("autocmds")
+
+require("keymaps")
 
 require("options")
 
-require("keymaps")
+require("plugins")

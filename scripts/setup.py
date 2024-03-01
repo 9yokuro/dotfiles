@@ -8,6 +8,7 @@ FILES: Final[list[str]] = [
     "~/.config/home-manager",
     "~/.config/nix",
     "~/.config/nvim",
+    "~/.config/sheldon/",
     "~/.config/sway",
     "~/.config/tmux",
     "~/.config/vim",

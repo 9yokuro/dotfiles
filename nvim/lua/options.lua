@@ -1,208 +1,136 @@
 -- Options
-local augroup = vim.api.nvim_create_augroup
-
-local autocmd = vim.api.nvim_create_autocmd
-
-local cmd = vim.cmd
-
 local g = vim.g
-
-local group = "init.lua"
 
 local opt = vim.opt
 
--- Appearance
-cmd.syntax("on")
+local function set_options(options, value)
+	for i = 1, #options do
+		opt[options[i]] = value
+	end
+end
+
+local function set_global_variables(global_variables, value)
+	for i = 1, #global_variables do
+		g[global_variables[i]] = value
+	end
+end
+
+local disabled_options = {
+	"backup",
+	"fsync",
+	"ruler",
+	"swapfile",
+	"title",
+	"wrap",
+}
+
+local disabled_plugins = {
+	"did_indent_on",
+	"did_install_default_menus",
+	"did_install_syntax_menu",
+	"did_load_ftplugin",
+	"ebuild_create_on_empty",
+	"glep_create_on_empty",
+	"loaded_2html_plugin",
+	"loaded_gentoo_common",
+	"loaded_getscript",
+	"loaded_getscriptPlugin",
+	"loaded_gzip",
+	"loaded_logipat",
+	"loaded_logiPat",
+	"loaded_man",
+	"loaded_matchit",
+	"loaded_matchparen",
+	"loaded_netrw",
+	"loaded_netrwPlugin",
+	"loaded_newebuild",
+	"loaded_newglep",
+	"loaded_newinitd",
+	"loaded_newmetadata",
+	"loaded_remote_plugins",
+	"loaded_rrhelper",
+	"loaded_shada_plugin",
+	"loaded_spellfile_plugin",
+	"loaded_tar",
+	"loaded_tarPlugin",
+	"loaded_tutor_mode_plugin",
+	"loaded_vimball",
+	"loaded_vimballPlugin",
+	"loaded_zip",
+	"loaded_zipPlugin",
+	"loadedzip",
+	"skip_loading_mswin",
+}
+
+local enabled_options = {
+	"autoindent",
+	"autoread",
+	"copyindent",
+	"expandtab",
+	"hidden",
+	"hlsearch",
+	"ignorecase",
+	"incsearch",
+	"lazyredraw",
+	"number",
+	"relativenumber",
+	"smartcase",
+	"smartindent",
+	"smarttab",
+	"splitbelow",
+	"splitright",
+	"ttyfast",
+	"wildmenu",
+	"writebackup",
+}
+
+local set_to_0 = {
+	"cmdheight",
+	"laststatus",
+	"showtabline",
+}
+
+local set_to_4 = {
+	"shiftwidth",
+	"softtabstop",
+	"tabstop",
+}
+
+local set_to_20 = {
+	"pumblend",
+	"winblend",
+}
+
+local set_to_utf_8 = {
+	"encoding",
+	"fileencoding",
+}
+
+set_global_variables(disabled_plugins, 1)
+
+set_options(disabled_options, false)
+
+set_options(enabled_options, true)
+
+set_options(set_to_0, 0)
+
+set_options(set_to_4, 4)
+
+set_options(set_to_20, 20)
+
+set_options(set_to_utf_8, "utf-8")
+
+-- Miscellaneous
+vim.cmd.syntax("on")
 
 g.termguicolors = true
 
-opt.background = "dark"
-
-opt.cmdheight = 0
-
-opt.laststatus = 0
-
-opt.number = true
-
-opt.pumblend = 20
-
-opt.relativenumber = true
-
-opt.ruler = false
-
-opt.showtabline = 0
-
-opt.title = false
-
-opt.winblend = 20
-
--- Indent
-opt.autoindent = true
-
-opt.copyindent = true
-
-opt.expandtab = true
-
-opt.shiftwidth = 4
-
-opt.smartindent = true
-
-opt.smarttab = true
-
-opt.tabstop = 4
-
-augroup(group, {})
-
-autocmd("FileType", {
-	group = group,
-	pattern = { "json", "nix", "yaml" },
-	callback = function()
-		opt.shiftwidth = 2
-		opt.tabstop = 2
-	end,
-})
-
--- Miscellaneous
 opt.ambiwidth = "single"
 
-opt.autoread = true
-
-opt.backup = false
+opt.background = "dark"
 
 opt.clipboard:append({ "unnamed", "unnamedplus" })
-
-opt.encoding = "utf-8"
-
-opt.fileencoding = "utf-8"
-
-opt.fsync = false
-
-opt.hidden = true
 
 opt.path:append({ ".**100", "/usr/include**100" })
 
 opt.shell = "zsh"
-
-opt.splitbelow = true
-
-opt.splitright = true
-
-opt.swapfile = false
-
-opt.wildmenu = true
-
-opt.wrap = false
-
-opt.writebackup = true
-
--- Quickfix
-augroup(group, {})
-
-autocmd("QuickFixCmdPost", {
-	group = group,
-	pattern = { "*grep*", "*make*" },
-	command = "silent cwindow",
-})
-
--- Search
-opt.hlsearch = true
-
-opt.ignorecase = true
-
-opt.incsearch = true
-
-opt.smartcase = true
-
--- Standard plugins
-g.did_indent_on = 1
-
-g.did_install_default_menus = 1
-
-g.did_install_syntax_menu = 1
-
-g.did_load_ftplugin = 1
-
-g.ebuild_create_on_empty = 1
-
-g.glep_create_on_empty = 1
-
-g.loaded_2html_plugin = 1
-
-g.loaded_gentoo_common = 1
-
-g.loaded_getscript = 1
-
-g.loaded_getscriptPlugin = 1
-
-g.loaded_gzip = 1
-
-g.loaded_logipat = 1
-
-g.loaded_logiPat = 1
-
-g.loaded_man = 1
-
-g.loaded_matchit = 1
-
-g.loaded_matchparen = 1
-
-g.loaded_netrw = 1
-
-g.loaded_netrwPlugin = 1
-
-g.loaded_newebuild = 1
-
-g.loaded_newglep = 1
-
-g.loaded_newinitd = 1
-
-g.loaded_newmetadata = 1
-
-g.loaded_remote_plugins = 1
-
-g.loaded_rrhelper = 1
-
-g.loaded_shada_plugin = 1
-
-g.loaded_spellfile_plugin = 1
-
-g.loaded_tar = 1
-
-g.loaded_tarPlugin = 1
-
-g.loaded_tutor_mode_plugin = 1
-
-g.loaded_vimball = 1
-
-g.loaded_vimballPlugin = 1
-
-g.loaded_zip = 1
-
-g.loaded_zipPlugin = 1
-
-g.loadedzip = 1
-
-g.skip_loading_mswin = 1
-
--- Terminal
-opt.lazyredraw = true
-
-opt.ttyfast = true
-
-augroup(group, {})
-
-autocmd("TermOpen", {
-	group = group,
-	callback = function()
-		cmd.startinsert()
-
-		opt.number = false
-
-		opt.relativenumber = false
-	end,
-})
-
-autocmd("TermClose", {
-	group = group,
-	command = "bdelete",
-})

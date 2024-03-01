@@ -1,3 +1,33 @@
 [[plugins]]
 repo = "lambdalisue/fern.vim"
-on_event = "VimEnter"
+on_map = "<Plug>"
+hook_add = """
+    nnoremap <Space>f <Cmd>Fern . -drawer -reveal=% -toggle<CR>
+"""
+
+[[plugins]]
+repo = "joshdick/onedark.vim"
+hook_source = """
+    colorscheme onedark
+"""
+
+[[plugins]]
+repo = "Shougo/ddu.vim"
+
+[[plugins]]
+repo = "Shougo/ddu-ui-ff"
+
+[[plugins]]
+repo = "Shougo/ddu-commands.vim"
+
+[[plugins]]
+repo = "Shougo/ddu-filter-matcher_substring"
+
+[[plugins]]
+repo = "Shougo/ddu-source-file_rec"
+
+[[plugins]]
+repo = "Shougo/ddu-source-file"
+
+[[plugins]]
+repo = "Shougo/ddu-kind-file"

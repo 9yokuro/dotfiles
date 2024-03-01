@@ -3,53 +3,59 @@ vim9script
 # Plugins
 const dpp_base = "~/.cache/dpp/"
 
-const dpp_path = dpp_base .. "repos/github.com/"
-
 const dpp_src = dpp_base .. "repos/github.com/Shougo/dpp.vim"
-
-const dpp_extensions = [
-    "Shougo/dpp-ext-installer",
-    "Shougo/dpp-ext-lazy",
-    "Shougo/dpp-ext-toml",
-    "Shougo/dpp-protocol-git",
-]
 
 const denops_src = dpp_base .. "repos/github.com/vim-denops/denops.vim"
 
-const github = "https://github.com/"
+def InstallDpp()
+    const dpp_extensions = [
+        "Shougo/dpp-ext-installer",
+        "Shougo/dpp-ext-lazy",
+        "Shougo/dpp-ext-toml",
+        "Shougo/dpp-protocol-git",
+    ]
 
-if isdirectory(dpp_src) == 0
-    system("git clone --depth 1 https://github.com/Shougo/dpp.vim " .. dpp_src)
-endif
+    const dpp_path = dpp_base .. "repos/github.com/"
 
-execute "set runtimepath^=" .. dpp_src
+    const github = "https://github.com/"
 
-for extension in dpp_extensions
-    var url = github .. extension
-
-    var path = dpp_path .. extension
-
-    if isdirectory(path) == 0
-        system("git clone --depth 1 " .. url .. " " .. path)
+    if isdirectory(dpp_src) == 0
+        system("git clone --depth 1 https://github.com/Shougo/dpp.vim " .. dpp_src)
     endif
 
-    execute "set runtimepath^=" .. path
-endfor
+    execute "set runtimepath^=" .. dpp_src
 
-if isdirectory(denops_src) == 0
-    system("git clone --depth 1 https://github.com/vim-denops/denops.vim " .. denops_src)
-endif
+    for extension in dpp_extensions
+        var url = github .. extension
 
-if dpp_base->dpp#min#load_state()
-    execute "set runtimepath^=" .. denops_src
+        var path = dpp_path .. extension
 
-    augroup dpp
-        autocmd!
-        autocmd User DenopsReady call dpp#make_state(dpp_base, "~/.config/vim/dpp.ts")
-    augroup END
-endif
+        if isdirectory(path) == 0
+            system("git clone --depth 1 " .. url .. " " .. path)
+        endif
 
-colorscheme onedark
+        execute "set runtimepath^=" .. path
+    endfor
+
+    if isdirectory(denops_src) == 0
+        system("git clone --depth 1 https://github.com/vim-denops/denops.vim " .. denops_src)
+    endif
+enddef
+
+def SetupDpp()
+    if dpp_base->dpp#min#load_state()
+        execute "set runtimepath^=" .. denops_src
+
+        augroup dpp
+            autocmd!
+            autocmd User DenopsReady call dpp#make_state(dpp_base, "~/.config/vim/dpp.ts")
+        augroup END
+    endif
+enddef
+
+InstallDpp()
+
+SetupDpp()
 
 # Options
 
@@ -268,3 +274,42 @@ nnoremap sJ <Cmd>wincmd J<CR>
 nnoremap sK <Cmd>wincmd K<CR>
 
 nnoremap sL <Cmd>wincmd L<CR>
+
+call ddu#custom#patch_global({
+    \   ui: 'ff',
+    \   kindOptions: {
+    \       file: {
+    \           defaultAction: 'open',
+    \       },
+    \   },
+    \   sourceOptions: {
+    \       _: {
+    \           matchers: [ 'matcher_substring' ],
+    \       },
+    \   },
+    \   sources: [
+    \       {
+    \           name: 'file_rec',
+    \           params: {}
+    \       }
+    \   ],
+    \ })
+
+def DduMySettings()
+    nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+    nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+    nnoremap <buffer><silent> i <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+    nnoremap <buffer><silent> q <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+enddef
+
+def DduFilterMySettings()
+    inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
+    nnoremap <buffer><silent> <CR> <Cmd>close<CR>
+    nnoremap <buffer><silent> q <Cmd>close<CR>
+enddef
+
+augroup ddu
+    autocmd!
+    autocmd FileType ddu-ff call DduMySettings()
+    autocmd FileType ddu-ff-filter call DduFilterMySettings()
+augroup END

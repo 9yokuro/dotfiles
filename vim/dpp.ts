@@ -42,7 +42,6 @@ export class Config extends BaseConfig {
     ];
 
     const toml_promises = toml_files.map(async (toml) => {
-      console.log(toml);
       tomls.push(
         await args.dpp.extAction(
           args.denops,

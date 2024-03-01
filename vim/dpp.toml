@@ -15,6 +15,3 @@ repo = "Shougo/dpp-protocol-git"
 
 [[plugins]]
 repo = 'vim-denops/denops.vim'
-
-[[plugins]]
-repo = "joshdick/onedark.vim"

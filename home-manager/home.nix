@@ -31,19 +31,26 @@
     # Languages
     deno
     go
+    goreleaser
+    nixpkgs-fmt
     nodejs_21
     rustup
     stylua
 
     # Tools
     btop
+    eza
     fastfetch
     fd
+    fish
+    fzf
     ripgrep
     sl
+    sheldon
     tmux
     tokei
     unzip
+    zoxide
 
     # Window manager
     fuzzel
@@ -54,9 +61,9 @@
   programs.home-manager.enable = true;
 
   programs.git = {
-      enable = true;
-      extraConfig.core.editor = "nvim";
-      userEmail = "xzstd099@protonmail.com";
-      userName = "9yokuro";
+    enable = true;
+    extraConfig.core.editor = "nvim";
+    userEmail = "xzstd099@protonmail.com";
+    userName = "9yokuro";
   };
 }

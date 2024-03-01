@@ -5,7 +5,7 @@ fi
 
 # Path
 typeset -U path PATH
-path=(~/.cargo/bin/ ~/go/bin ~/.deno/bin $path)
+path=(~/.cargo/bin/ ~/go/bin $path)
 export PATH
 
 # Alias
@@ -18,10 +18,12 @@ alias gp="git push"
 alias gP="git pull"
 alias gs="git status"
 alias gS="git switch"
+alias gt="git tag"
 alias v="nvim"
 alias doas="doas "
 alias e="exit"
-alias ls="ls --size -l --human-readable --color --no-group"
+alias eza="eza -l"
+alias c="clear"
 
 # Options
 setopt autocd
@@ -47,9 +49,17 @@ HISTFILE=~/.zhist
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-autoload -Uz history-beginning-search-menu
-zle -N history-beginning-search-menu
-bindkey "^r" history-beginning-search-menu
+function fzf-select-history() {
+    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
+
+    CURSOR=$#BUFFER
+
+    zle reset-prompt
+}
+
+zle -N fzf-select-history
+
+bindkey '^r' fzf-select-history
 bindkey "^n" history-beginning-search-backward
 bindkey "^p" history-beginning-search-forward
 
@@ -75,3 +85,9 @@ precmd(){ vcs_info }
 
 # Nix home-manager
 source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+
+# Plugins
+eval "$(sheldon source)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
