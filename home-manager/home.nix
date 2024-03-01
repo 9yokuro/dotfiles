@@ -19,6 +19,7 @@
 
   home.packages = with pkgs; [
     # Editors
+    emacs29-pgtk
     neovim
     vim
 

@@ -6,7 +6,7 @@
 ### Requirements
 - A Unix-like operating system
 - [Nerd Font](https://www.nerdfonts.com) (Recommend Iosevka Nerd Font)
-- Of course [Git](https://git-scm.com)
+- [Git](https://git-scm.com)
 
 ### Optional
 - [Nix](https://nixos.org)
