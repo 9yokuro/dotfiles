@@ -1,19 +1,15 @@
 -- Options
+local cmd = vim.cmd
+
 local g = vim.g
 
 local opt = vim.opt
 
-local function set_options(options, value)
-	for i = 1, #options do
-		opt[options[i]] = value
-	end
-end
+local utils = require("utils")
 
-local function set_global_variables(global_variables, value)
-	for i = 1, #global_variables do
-		g[global_variables[i]] = value
-	end
-end
+local set_global_variables = utils.set_global_variables
+
+local set_options = utils.set_options
 
 local disabled_options = {
 	"backup",
@@ -121,7 +117,7 @@ set_options(set_to_20, 20)
 set_options(set_to_utf_8, "utf-8")
 
 -- Miscellaneous
-vim.cmd.syntax("on")
+cmd.syntax("on")
 
 g.termguicolors = true
 

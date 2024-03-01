@@ -1,19 +1,24 @@
 -- Keymaps
-local function imap(lhs, rhs)
-	vim.keymap.set("i", lhs, rhs)
-end
+local cmd = vim.cmd
 
-local function nmap(lhs, rhs)
-	vim.keymap.set("n", lhs, rhs)
-end
+local g = vim.g
+
+local utils = require("utils")
+
+local nmap = utils.nmap
+
+local imap = utils.imap
 
 -- Buffer
 nmap("[b", "<Cmd>bprevious<CR>")
 
 nmap("]b", "<Cmd>bnext<CR>")
 
+-- Fern
+nmap("<Space>f", "<Cmd>Fern . -drawer -reveal=% -toggle<CR>")
+
 -- Miscellaneous
-vim.g.mapleader = ";"
+g.mapleader = ";"
 
 imap("jj", "<Cmd>stopinsert<CR>")
 
@@ -38,7 +43,7 @@ nmap("tf", function()
 		row = 1,
 	})
 
-	vim.cmd.terminal()
+	cmd.terminal()
 end)
 
 -- Vimgrep
