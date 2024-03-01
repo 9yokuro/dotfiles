@@ -145,34 +145,34 @@ def SetOptionsToString(options: list<string>, value: string)
 enddef
 
 const enabled_options = [
-    "termguicolors",
-    "number",
-    "relativenumber",
     "autoindent",
+    "autoread",
     "copyindent",
     "expandtab",
-    "smartindent",
-    "smarttab",
-    "autoread",
     "hidden",
-    "splitbelow",
-    "splitright",
-    "wildmenu",
-    "writebackup",
     "hlsearch",
     "ignorecase",
     "incsearch",
-    "smartcase",
     "lazyredraw",
+    "number",
+    "termguicolors",
+    "relativenumber",
+    "smartcase",
+    "smartindent",
+    "smarttab",
+    "splitbelow",
+    "splitright",
     "ttyfast",
+    "wildmenu",
+    "writebackup",
 ]
 
 const disabled_options = [
-    "ruler",
-    "title",
     "backup",
     "fsync",
+    "ruler",
     "swapfile",
+    "title",
     "wrap",
 ]
 
