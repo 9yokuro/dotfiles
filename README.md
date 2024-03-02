@@ -40,13 +40,24 @@
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 
+### Startup time
+```console
+$ vim-startuptime -vimpath=nvim | grep Total
+
+Total Average: 10.231000 msec
+Total Max:     11.370000 msec
+Total Min:     9.643000 msec
+```
+
 ## Sway
 ### Requirements
+- Nerd Font
 - [fuzzel](https://codeberg.org/dnkl/fuzzel)
 - [grim](https://git.sr.ht/~emersion/grim)
 - [mako](https://github.com/emersion/mako)
 - [source sans](https://github.com/adobe-fonts/source-sans)
 - [swaybg](https://github.com/swaywm/swaybg)
+- [Waybar](https://github.com/Alexays/Waybar)
 
 ## Vim
 ### Requirements
@@ -75,10 +86,26 @@
 - nerdfont.vim
 - [onedark.vim](https://github.com/joshdick/onedark.vim)
 
+### Startup time
+```console
+$ vim-startuptime | grep Total
+
+Total Average: 47.659900 msec
+Total Max:     75.439000 msec
+Total Min:     29.491000 msec
+```
+
 ## Zsh
 ### Requirements
 - [fzf](https://github.com/junegunn/fzf)
 - [sheldon](https://github.com/rossmacarthur/sheldon)
+
+### Startup time
+```console
+$ time zsh -i -c exit
+
+zsh -i -c exit  0.02s user 0.00s system 98% cpu 0.027 total
+```
 
 ### Plugins
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)

@@ -89,7 +89,18 @@ autocmd("VimEnter", {
 		require("tokyonight").setup({
 			style = "night",
 			transparent = true,
+			on_highlights = function(hl, c)
+				hl.Statusline = hl.Comment
+
+				hl.StatuslineNC = hl.Comment
+
+				hl.VirtSplit = hl.Comment
+			end,
 		})
+
+		opt.statusline = "─"
+
+		opt.fillchars:append({ stl = "─", stlnc = "─", vert = "│", eob = "\\x20" })
 
 		cmd.colorscheme("tokyonight")
 	end,
