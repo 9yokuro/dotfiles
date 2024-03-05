@@ -45,6 +45,7 @@
     fd
     fish
     fzf
+    gh
     ripgrep
     sl
     sheldon

@@ -259,6 +259,16 @@ set path+=.**100,/usr/include**100
 
 set shell=zsh
 
+set statusline=─
+
+set fillchars+=stl:-,stlnc:─,vert:│,eob:\\x20
+
+highlight! link StatusLine Comment
+
+highlight! link StatusLineNC Comment
+
+highlight! link VertSplit Comment
+
 # Keymaps
 
 # Buffer
@@ -318,3 +328,7 @@ nnoremap sJ <Cmd>wincmd J<CR>
 nnoremap sK <Cmd>wincmd K<CR>
 
 nnoremap sL <Cmd>wincmd L<CR>
+
+set runtimepath^=~/code/genprime.vim
+
+g:denops#debug = 1

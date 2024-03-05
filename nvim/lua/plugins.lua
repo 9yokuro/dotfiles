@@ -89,7 +89,7 @@ autocmd("VimEnter", {
 		require("tokyonight").setup({
 			style = "night",
 			transparent = true,
-			on_highlights = function(hl, c)
+			on_highlights = function(hl)
 				hl.Statusline = hl.Comment
 
 				hl.StatuslineNC = hl.Comment
@@ -100,7 +100,7 @@ autocmd("VimEnter", {
 
 		opt.statusline = "─"
 
-		opt.fillchars:append({ stl = "─", stlnc = "─", vert = "│", eob = "\\x20" })
+		opt.fillchars:append({ stl = "-", stlnc = "─", vert = "│", eob = "\\x20" })
 
 		cmd.colorscheme("tokyonight")
 	end,
@@ -157,12 +157,19 @@ autocmd("VimEnter", {
 				pattern = "*.nix",
 				command = "nixpkgs-fmt",
 			},
+
+			{
+				pattern = { "*.js", "*.ts" },
+				command = "deno fmt",
+			},
 		})
 	end,
 })
 
 -- Fern
 g["fern#renderer"] = "nerdfont"
+
+nmap("<Space>f", "<Cmd>Fern . -drawer -reveal=% -toggle<CR>")
 
 autocmd("FileType", {
 	group = group,

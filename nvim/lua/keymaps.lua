@@ -14,13 +14,12 @@ nmap("[b", "<Cmd>bprevious<CR>")
 
 nmap("]b", "<Cmd>bnext<CR>")
 
--- Fern
-nmap("<Space>f", "<Cmd>Fern . -drawer -reveal=% -toggle<CR>")
-
 -- Miscellaneous
 g.mapleader = ";"
 
 imap("jj", "<Cmd>stopinsert<CR>")
+
+nmap("<Space>w", "<Cmd>update<CR>")
 
 -- Quickfix
 nmap("[q", "<Cmd>cprevious<CR>")

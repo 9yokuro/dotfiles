@@ -6,6 +6,7 @@ from typing import Final
 FILES: Final[list[str]] = [
     "~/.config/alacritty",
     "~/.config/home-manager",
+    "~/.config/libskk",
     "~/.config/nix",
     "~/.config/nvim",
     "~/.config/sheldon/",
