@@ -13,7 +13,7 @@ vim.api.nvim_create_augroup(group, {})
 
 autocmd("FileType", {
 	group = group,
-	pattern = { "json", "nix", "yaml" },
+	pattern = { "javascript", "json", "nix", "typescript", "yaml" },
 	callback = function()
 		local options = {
 			"shiftwidth",
@@ -48,8 +48,48 @@ autocmd("TermOpen", {
 		local options = {
 			"number",
 			"relativenumber",
+			"spell",
 		}
 
 		set_options(options, false)
 	end,
 })
+
+local format = {
+	{
+		pattern = "*.rs",
+		command = "rustfmt",
+	},
+
+	{
+		pattern = "*.go",
+		command = "go fmt",
+	},
+
+	{
+		pattern = "*.lua",
+		command = "stylua",
+	},
+
+	{
+		pattern = "*.nix",
+		command = "nixpkgs-fmt",
+	},
+
+	{
+		pattern = { "*.js", "*.ts" },
+		command = "deno fmt",
+	},
+}
+
+for i = 1, #format do
+	local f = format[i]
+
+	autocmd("BufWritePost", {
+		group = group,
+		pattern = f.pattern,
+		callback = function()
+			cmd(":silent !" .. f.command .. " %")
+		end,
+	})
+end

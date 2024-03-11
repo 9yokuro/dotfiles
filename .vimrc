@@ -2,115 +2,11 @@ vim9script
 
 const group = "vimrc"
 
-# Plugins
-const dpp_base = "~/.cache/dpp/"
-
-const dpp_src = dpp_base .. "repos/github.com/Shougo/dpp.vim"
-
-const denops_src = dpp_base .. "repos/github.com/vim-denops/denops.vim"
-
-def InstallDpp()
-    const dpp_extensions = [
-        "Shougo/dpp-ext-installer",
-        "Shougo/dpp-ext-lazy",
-        "Shougo/dpp-ext-toml",
-        "Shougo/dpp-protocol-git",
-    ]
-
-    const dpp_path = dpp_base .. "repos/github.com/"
-
-    const github = "https://github.com/"
-
-    if isdirectory(dpp_src) == 0
-        system("git clone --depth 1 https://github.com/Shougo/dpp.vim " .. dpp_src)
-    endif
-
-    execute "set runtimepath^=" .. dpp_src
-
-    for extension in dpp_extensions
-        var url = github .. extension
-
-        var path = dpp_path .. extension
-
-        if isdirectory(path) == 0
-            system("git clone --depth 1 " .. url .. " " .. path)
-        endif
-
-        execute "set runtimepath^=" .. path
-    endfor
-
-    if isdirectory(denops_src) == 0
-        system("git clone --depth 1 https://github.com/vim-denops/denops.vim " .. denops_src)
-    endif
-enddef
-
-def SetupDpp()
-    if dpp_base->dpp#min#load_state()
-        execute "set runtimepath^=" .. denops_src
-
-        augroup dpp
-            autocmd!
-            autocmd User DenopsReady call dpp#make_state(dpp_base, "~/.config/vim/dpp.ts")
-        augroup END
-    endif
-enddef
-
-InstallDpp()
-
-SetupDpp()
-
-def DduSettings()
-    nnoremap <buffer><silent> <CR> <Cmd>call ddu#ui#do_action("itemAction")<CR>
-
-    nnoremap <buffer><silent> <Space> <Cmd>call ddu#ui#do_action("toggleSelectItem")<CR>
-
-    nnoremap <buffer><silent> i <Cmd>call ddu#ui#do_action("openFilterWindow")<CR>
-
-    nnoremap <buffer><silent> q <Cmd>call ddu#ui#do_action("quit")<CR>
-enddef
-
-def DduFilterSettings()
-    inoremap <buffer><silent> <CR> <Esc><Cmd>close<CR>
-
-    nnoremap <buffer><silent> <CR> <Cmd>close<CR>
-
-    nnoremap <buffer><silent> q <Cmd>close<CR>
-enddef
-
 # Autocmds
 augroup group
     autocmd!
-    autocmd FileType json,nix,yaml set shiftwidth=2 softtabstop=2 tabstop=2
-    autocmd FileType fern set nonumber norelativenumber
+    autocmd FileType javascript,json,nix,typescript,yaml set shiftwidth=2 softtabstop=2 tabstop=2
     autocmd QuickFixCmdPost *grep*,*make* silent cwindow
-    autocmd VimEnter * colorscheme onedark
-    autocmd VimEnter * hi FoldColumn guibg=NONE ctermbg=NONE
-    autocmd VimEnter * hi SignColumn guibg=NONE ctermbg=NONE
-    autocmd VimEnter * hi Normal guibg=NONE ctermbg=NONE
-    autocmd VimEnter * hi NormalNC guibg=NONE ctermbg=NONE
-    autocmd VimEnter * call ddu#custom#patch_global({
-    \   ui: "ff",
-    \   uiParams: {
-    \       ff: {
-    \           startFilter: v:true,
-    \       }
-    \   },
-    \   sources: [{ name: "file_rec" }],
-    \   sourceOptions: {
-    \       _: {
-    \           matchers: ["matcher_substring"],
-    \       },
-    \   },
-    \   kindOptions: {
-    \       file: {
-    \           defaultAction: "open",
-    \       },
-    \   },
-    \  	})
-
-    autocmd FileType ddu-ff DduSettings()
-
-    autocmd FileType ddu-ff-filter DduFilterSettings()
 augroup END
 
 # Options
@@ -242,12 +138,9 @@ SetOptionsToNumber(set_to_4, 4)
 
 SetOptionsToString(set_to_utf_8, "utf-8")
 
-# Fern
-g:fern#renderer = "nerdfont"
-
 # Miscellaneous
 
-syntax on
+syntax enable
 
 set ambiwidth=single
 
@@ -276,20 +169,8 @@ nnoremap [b <Cmd>bprevious<CR>
 
 nnoremap ]b <Cmd>bnext<CR>
 
-# Fern
-nnoremap <Space>f <Cmd>Fern . -drawer -reveal=% -toggle<CR>
-
 # Miscellaneous
 g:mapleader = ";"
-
-inoremap jj <Cmd>stopinsert<CR>
-
-# Ddu
-nnoremap <leader>fr <Cmd>Ddu file_rec<CR>
-
-nnoremap <leader>ff <Cmd>Ddu file<CR>
-
-nnoremap <leader>fb <Cmd>Ddu buffer<CR>
 
 # Quickfix
 nnoremap [q <Cmd>cprevious<CR>
@@ -297,38 +178,227 @@ nnoremap [q <Cmd>cprevious<CR>
 nnoremap ]q <Cmd>cnext<CR>
 
 # Terminal
-nnoremap tt <Cmd>tab terminal<CR>
+nnoremap <Space>tt <Cmd>tab terminal<CR>
 
-nnoremap ts <Cmd>bo terminal<CR>
+nnoremap <Space>ts <Cmd>bo terminal<CR>
 
-nnoremap tv <Cmd>vert terminal<CR>
+nnoremap <Space>tv <Cmd>vert terminal<CR>
 
 # Vimgrep
 nnoremap <Space>g :silent vimgrep 
 
 # Window
-nnoremap ss <Cmd>split<CR>
+nnoremap <Space>ss <Cmd>split<CR>
 
-nnoremap sv <Cmd>vsplit<CR>
+nnoremap <Space>sv <Cmd>vsplit<CR>
 
-nnoremap sc <Cmd>wincmd c<CR>
+nnoremap <Space>sc <Cmd>wincmd c<CR>
 
-nnoremap sh <Cmd>wincmd h<CR>
+nnoremap <Space>sh <Cmd>wincmd h<CR>
 
-nnoremap sj <Cmd>wincmd j<CR>
+nnoremap <Space>sj <Cmd>wincmd j<CR>
 
-nnoremap sk <Cmd>wincmd k<CR>
+nnoremap <Space>sk <Cmd>wincmd k<CR>
 
-nnoremap sl <Cmd>wincmd l<CR>
+nnoremap <Space>sl <Cmd>wincmd l<CR>
 
-nnoremap sH <Cmd>wincmd H<CR>
+nnoremap <Space>sH <Cmd>wincmd H<CR>
 
-nnoremap sJ <Cmd>wincmd J<CR>
+nnoremap <Space>sJ <Cmd>wincmd J<CR>
 
-nnoremap sK <Cmd>wincmd K<CR>
+nnoremap <Space>sK <Cmd>wincmd K<CR>
 
-nnoremap sL <Cmd>wincmd L<CR>
+nnoremap <Space>sL <Cmd>wincmd L<CR>
 
-set runtimepath^=~/code/genprime.vim
+# Colorscheme
+def SetColorscheme()
+    highlight clear
 
-g:denops#debug = 1
+    if exists("syntax_on")
+        syntax reset
+    endif
+
+    g:colors_name = "alcedo"
+
+    const colors_bg = "#000810"
+
+    const colors_fg = "#eedcd2"
+
+    const colors_blue = "#007ce9"
+
+    const colors_yellow = "#eea47f"
+
+    const bold = "cterm=bold gui=bold"
+
+    const italic = "cterm=italic gui=italic"
+
+    const reverse = "cterm=reverse gui=reverse"
+
+    const underline = "cterm=underline gui=underline"
+
+    const fg = "guifg=" .. colors_fg
+
+    const bg = "guibg=" .. colors_bg
+
+    const fg_bg = fg .. " " .. bg
+
+    const blue_bg = "guifg=" .. colors_blue .. " " .. bg
+
+    const yellow_bg = "guifg=" .. colors_yellow .. " " .. bg
+
+    exec "highlight Comment " .. fg .. " " .. italic
+
+    exec "highlight Constant " .. fg
+
+    exec "highlight Identifier " .. fg
+
+    exec "highlight Statement " .. fg
+
+    exec "highlight PreProc " .. fg .. " " .. italic
+
+    exec "highlight Type " .. fg
+
+    exec "highlight Special " .. fg
+
+    exec "highlight Underlined " .. fg .. " " .. underline
+
+    exec "highlight Ignore " .. fg
+
+    exec "highlight Error " .. fg
+
+    exec "highlight Todo " .. fg
+
+    exec "highlight ColorColumn " .. fg_bg
+
+    exec "highlight Conceal " .. fg_bg
+
+    exec "highlight link CurSearch Search"
+
+    exec "highlight Cursor guifg=bg guibg=fg"
+
+    exec "highlight lCursor guifg=bg guibg=fg"
+
+    exec "highlight CursorColumn " .. fg_bg
+
+    exec "highlight CursorLine " .. fg_bg .. " " .. underline
+
+    exec "highlight Directory " .. fg_bg
+
+    exec "highlight DiffAdd " .. fg_bg
+
+    exec "highlight DiffChange " .. fg_bg
+
+    exec "highlight DiffDelete " .. fg_bg
+
+    exec "highlight DiffText " .. fg_bg
+
+    exec "highlight link EndOfBuffer NonText"
+
+    exec "highlight TermCursor " .. reverse
+
+    exec "highlight ErrorMsg " .. yellow_bg
+
+    exec "highlight link WinSeparator VertSplit"
+
+    exec "highlight Folded " .. blue_bg
+
+    exec "highlight FoldColumn " .. blue_bg
+
+    exec "highlight SignColumn " .. blue_bg
+
+    exec "highlight IncSearch " .. reverse
+
+    exec "highlight link Substitute Search"
+
+    exec "highlight LineNr guifg=" .. colors_yellow
+
+    exec "highlight link LineNrAbove LineNr"
+
+    exec "highlight link LineNrBelow LineNr"
+
+    exec "highlight CursorLineNr guifg=" .. colors_yellow .. " " .. bold .. " " .. underline
+
+    exec "highlight link CursorLineFold FoldColumn"
+
+    exec "highlight link CursorLineSign SignColumn"
+
+    exec "highlight MatchParen guibg=" .. colors_blue
+
+    exec "highlight ModeMsg guifg=" .. colors_blue
+
+    exec "highlight link MsgSeparator StatusLine"
+
+    exec "highlight MoreMsg guifg=" .. colors_blue .. " " .. bold
+
+    exec "highlight NonText guifg=" .. colors_blue .. " " .. bold
+    
+    exec "highlight Normal " .. fg_bg
+
+    exec "highlight link NormalFloat Pmenu"
+
+    exec "highlight link FloatBorder WinSeparator"
+
+    exec "highlight link FloatTitle Title"
+
+    exec "highlight link NormalNC Normal"
+
+    exec "highlight Pmenu " .. fg_bg
+
+    exec "highlight PmenuSel guifg=" .. colors_bg .. " guibg=" .. colors_fg
+
+    exec "highlight link PmenuKind Pmenu"
+
+    exec "highlight link PmenuKindSel PmenuSel"
+
+    exec "highlight link PmenuExtra Pmenu"
+
+    exec "highlight link PmenuExtraSel PmenuSel"
+
+    exec "highlight PmenuSbar " .. bg
+
+    exec "highlight PmenuThumb guibg=" .. colors_fg
+
+    exec "highlight Question guifg=" .. colors_blue .. " " .. bold
+
+    exec "highlight link QuickFixLine Search"
+
+    exec "highlight Search guifg=" .. colors_bg .. " guibg=" .. colors_blue
+
+    exec "highlight SpecialKey guifg=" .. colors_blue
+
+    exec "highlight SpellBad " .. underline
+
+    exec "highlight SpellCap " .. underline
+
+    exec "highlight SpellLocal " .. underline
+
+    exec "highlight SpellRare " .. underline
+
+    exec "highlight link StatusLine Comment"
+
+    exec "highlight link StatusLineNC Comment"
+
+    exec "highlight TabLine " .. fg_bg .. " " .. underline
+
+    exec "highlight TabLineFill " .. reverse
+
+    exec "highlight TabLineSel " .. bold
+
+    exec "highlight Title guifg=" .. colors_blue .. " " .. bold
+
+    exec "highlight Visual guibg=" .. colors_blue
+
+    exec "highlight WarningMsg guifg=" .. colors_yellow
+
+    exec "highlight link Whitespace NonText"
+
+    exec "highlight WildMenu guifg=" .. colors_bg .. " guibg=" .. colors_blue
+
+    exec "highlight WinBar " .. bold
+
+    exec "highlight link WinBarNC WinBar"
+
+    exec "highlight link VertSplit Comment"
+enddef
+
+SetColorscheme()

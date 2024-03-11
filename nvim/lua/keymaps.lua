@@ -17,9 +17,9 @@ nmap("]b", "<Cmd>bnext<CR>")
 -- Miscellaneous
 g.mapleader = ";"
 
-imap("jj", "<Cmd>stopinsert<CR>")
-
 nmap("<Space>w", "<Cmd>update<CR>")
+
+nmap("<Space>q", "<Cmd>quit<CR>")
 
 -- Quickfix
 nmap("[q", "<Cmd>cprevious<CR>")
@@ -27,13 +27,13 @@ nmap("[q", "<Cmd>cprevious<CR>")
 nmap("]q", "<Cmd>cnext<CR>")
 
 -- Terminal
-nmap("tt", "<Cmd>terminal<CR>")
+nmap("<Space>tt", "<Cmd>terminal<CR>")
 
-nmap("ts", "<Cmd>belowright new<CR><Cmd>terminal<CR>")
+nmap("<Space>ts", "<Cmd>belowright new<CR><Cmd>terminal<CR>")
 
-nmap("tv", "<Cmd>vsplit<CR><Cmd>terminal<CR>")
+nmap("<Space>tv", "<Cmd>vsplit<CR><Cmd>terminal<CR>")
 
-nmap("tf", function()
+nmap("<Space>tf", function()
 	vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
 		relative = "editor",
 		width = vim.api.nvim_win_get_width(0) - 8,
@@ -49,24 +49,24 @@ end)
 nmap("<Space>g", ":silent vimgrep ")
 
 -- Window
-nmap("ss", "<Cmd>split<CR>")
+nmap("<Space>ss", "<Cmd>split<CR>")
 
-nmap("sv", "<Cmd>vsplit<CR>")
+nmap("<Space>sv", "<Cmd>vsplit<CR>")
 
-nmap("sc", "<Cmd>wincmd c<CR>")
+nmap("<Space>sc", "<Cmd>wincmd c<CR>")
 
-nmap("sh", "<Cmd>wincmd h<CR>")
+nmap("<Space>sh", "<Cmd>wincmd h<CR>")
 
-nmap("sj", "<Cmd>wincmd j<CR>")
+nmap("<Space>sj", "<Cmd>wincmd j<CR>")
 
-nmap("sk", "<Cmd>wincmd k<CR>")
+nmap("<Space>sk", "<Cmd>wincmd k<CR>")
 
-nmap("sl", "<Cmd>wincmd l<CR>")
+nmap("<Space>sl", "<Cmd>wincmd l<CR>")
 
-nmap("sH", "<Cmd>wincmd H<CR>")
+nmap("<Space>sH", "<Cmd>wincmd H<CR>")
 
-nmap("sJ", "<Cmd>wincmd J<CR>")
+nmap("<Space>sJ", "<Cmd>wincmd J<CR>")
 
-nmap("sK", "<Cmd>wincmd K<CR>")
+nmap("<Space>sK", "<Cmd>wincmd K<CR>")
 
-nmap("sL", "<Cmd>wincmd L<CR>")
+nmap("<Space>sL", "<Cmd>wincmd L<CR>")

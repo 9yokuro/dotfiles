@@ -1,3 +1,5 @@
+-- Utils
+
 local M = {}
 
 function M.set_options(options, value)
@@ -18,6 +20,12 @@ end
 
 function M.nmap(lhs, rhs)
 	vim.keymap.set("n", lhs, rhs)
+end
+
+function M.set_highlight(groups)
+	for group, parameters in pairs(groups) do
+		vim.api.nvim_set_hl(0, group, parameters)
+	end
 end
 
 return M

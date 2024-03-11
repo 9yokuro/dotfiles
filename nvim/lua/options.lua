@@ -75,6 +75,7 @@ local enabled_options = {
 	"smarttab",
 	"splitbelow",
 	"splitright",
+	"termguicolors",
 	"ttyfast",
 	"wildmenu",
 	"writebackup",
@@ -117,9 +118,12 @@ set_options(set_to_20, 20)
 set_options(set_to_utf_8, "utf-8")
 
 -- Miscellaneous
-cmd.syntax("on")
 
-g.termguicolors = true
+opt.statusline = "─"
+
+opt.fillchars:append({ stl = "-", stlnc = "─", vert = "│", eob = "\\x20" })
+
+cmd.syntax("enable")
 
 opt.ambiwidth = "single"
 

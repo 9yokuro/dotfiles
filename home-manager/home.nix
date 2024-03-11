@@ -1,15 +1,18 @@
 { config, pkgs, ... }:
 
 {
-  # nixpkgs.overlays = [
-  #   (self: super: {
-  #     stdenv = super.withCFlags [ "-O3" "-pipe" "-march=native" ] super.stdenv;
-  #   })
-  #
-  #   (self: super: {
-  #     stdenv = super.impureUseNativeOptimizations super.stdenv;
-  #   })
-  # ];
+  nixpkgs.overlays = [
+    #   (self: super: {
+    #     stdenv = super.withCFlags [ "-O3" "-pipe" "-march=native" ] super.stdenv;
+    #   })
+    #
+    #   (self: super: {
+    #     stdenv = super.impureUseNativeOptimizations super.stdenv;
+    #   })
+    #   (import (builtins.fetchTarball {
+    #     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
+    #   }))
+  ];
 
   home.username = "9yokuro";
 
@@ -40,6 +43,7 @@
 
     # Tools
     btop
+    dust
     eza
     fastfetch
     fd
