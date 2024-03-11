@@ -22,31 +22,14 @@
 ## Neovim
 ### Requirements
 - **Nvim 0.9.2** or later
-- Nerd Font
-- Git
-- A C compiler and libstdc++
-- [fd](https://github.com/sharkdp/fd)
-- [ripgrep](https://github.com/BurntSushi/ripgrep)
-
-### Plugins
-- [afmt.nvim](https://github.com/9yokuro/afmt.nvim)
-- [fern.vim](https://github.com/lambdalisue/fern.vim)
-- [fern-renderer-nerdfont.vim](https://github.com/lambdalisue/fern-renderer-nerdfont.vim)
-- [nerdfont.vim](https://github.com/lambdalisue/nerdfont.vim)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
-- [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
-- [plum.nvim](https://github.com/9yokuro/plum.nvim)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 
 ### Startup time
 ```console
 $ vim-startuptime -vimpath=nvim | grep Total
 
-Total Average: 10.231000 msec
-Total Max:     11.370000 msec
-Total Min:     9.643000 msec
+Total Average: 7.036100 msec
+Total Max:     7.313000 msec
+Total Min:     6.744000 msec
 ```
 
 ## Sway
@@ -62,37 +45,14 @@ Total Min:     9.643000 msec
 ## Vim
 ### Requirements
 - **v9.0.1276** or later
-- Nerd Font
-- Git
-- [Deno](https://deno.com)
-
-### Plugins
-- [ddu.vim](https://github.com/Shougo/ddu.vim)
-- [ddu-commands.vim](https://github.com/Shougo/ddu-commands.vim)
-- [ddu-filter-matcher_substring](https://github.com/Shougo/ddu-filter-matcher_substring)
-- [ddu-kind-file](https://github.com/Shougo/ddu-kind-file)
-- [ddu-source-file_rec](https://github.com/Shougo/ddu-source-file_rec)
-- [ddu-source-file](https://github.com/Shougo/ddu-source-file)
-- [ddu-source-buffer](https://github.com/shun/ddu-source-buffer)
-- [ddu-ui-ff](https://github.com/Shougo/ddu-ui-ff)
-- [denops.vim](https://github.com/vim-denops/denops.vim)
-- [dpp.vim](https://github.com/Shougo/dpp.vim?tab=readme-ov-file)
-- [dpp-ext-installer](https://github.com/Shougo/dpp-ext-installer)
-- [dpp-ext-lazy](https://github.com/Shougo/dpp-ext-lazy)
-- [dpp-ext-toml](https://github.com/Shougo/dpp-ext-toml)
-- [dpp-protocol-git](https://github.com/Shougo/dpp-protocol-git)
-- fern.vim
-- fern-renderer-nerdfont.vim
-- nerdfont.vim
-- [onedark.vim](https://github.com/joshdick/onedark.vim)
 
 ### Startup time
 ```console
 $ vim-startuptime | grep Total
 
-Total Average: 47.659900 msec
-Total Max:     75.439000 msec
-Total Min:     29.491000 msec
+Total Average: 7.496500 msec
+Total Max:     7.779000 msec
+Total Min:     7.182000 msec
 ```
 
 ## Zsh
