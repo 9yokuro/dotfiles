@@ -1,0 +1,17 @@
+vim9script
+
+import "~/.vim/autocmds.vim"
+
+import "~/.vim/keymaps.vim"
+
+import "~/.vim/options.vim"
+
+import "~/.vim/plugins.vim"
+
+autocmds.All()
+
+keymaps.All()
+
+options.All()
+
+plugins.All()

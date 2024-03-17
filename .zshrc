@@ -5,24 +5,40 @@ fi
 
 # Path
 typeset -U path PATH
+
 path=(~/.cargo/bin/ ~/go/bin $path)
+
 export PATH
 
 # Alias
 alias g="git"
+
 alias ga="git add"
+
 alias gb="git branch"
+
 alias gc="git commit"
+
 alias gC="git clone"
+
 alias gp="git push"
+
 alias gP="git pull"
+
 alias gs="git status"
+
 alias gS="git switch"
+
 alias gt="git tag"
-alias v="nvim"
+
+alias v="vim"
+
 alias doas="doas "
+
 alias e="exit"
+
 alias eza="eza -l"
+
 alias c="clear"
 
 # Options

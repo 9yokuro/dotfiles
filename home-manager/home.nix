@@ -9,9 +9,6 @@
     #   (self: super: {
     #     stdenv = super.impureUseNativeOptimizations super.stdenv;
     #   })
-    #   (import (builtins.fetchTarball {
-    #     url = https://github.com/nix-community/neovim-nightly-overlay/archive/master.tar.gz;
-    #   }))
   ];
 
   home.username = "9yokuro";
@@ -22,13 +19,11 @@
 
   home.packages = with pkgs; [
     # Editors
-    emacs29-pgtk
-    neovim
     vim
 
     # Fonts
     noto-fonts-monochrome-emoji
-    (nerdfonts.override { fonts = [ "Iosevka" ]; })
+    (nerdfonts.override { fonts = [ "Monaspace" ]; })
     source-han-sans
     source-sans
 
@@ -47,7 +42,6 @@
     eza
     fastfetch
     fd
-    fish
     fzf
     gh
     ripgrep
@@ -68,7 +62,7 @@
 
   programs.git = {
     enable = true;
-    extraConfig.core.editor = "nvim";
+    extraConfig.core.editor = "vim";
     userEmail = "xzstd099@protonmail.com";
     userName = "9yokuro";
   };
