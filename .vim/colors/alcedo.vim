@@ -13,12 +13,12 @@ def ExpandColor(foreground: string, background: string): string
 enddef
 
 const decorations = {
-  bold: "cterm=bold gui=bold ",
-  italic: "cterm=italic gui=italic ",
-  reverse: "cterm=reverse gui=reverse ",
-  undercurl: "cterm=underline gui=undercurl ",
-  underline: "cterm=underline gui=underline ",
-  NONE: "cterm=NONE gui=NONE term=NONE",
+  bold: "cterm=bold gui=bold term=bold ",
+  italic: "cterm=italic gui=italic term=NONE ",
+  reverse: "cterm=reverse gui=reverse term=NONE ",
+  undercurl: "cterm=underline gui=undercurl term=NONE ",
+  underline: "cterm=underline gui=underline term=NONE ",
+  NONE: "cterm=NONE gui=NONE term=NONE ",
 }
 
 const black_blue = ExpandColor("black", "blue")
@@ -220,7 +220,7 @@ def SetColorscheme()
 
   execute "highlight SpecialKey " .. blue_none .. decorations.NONE
 
-  execute "highlight SpellBad " .. black_white .. decorations.undercurl
+  execute "highlight SpellBad guisp=NONE " .. black_white .. decorations.undercurl
 
   highlight link SpellCap SpellBad
 
@@ -240,7 +240,7 @@ def SetColorscheme()
 
   execute "highlight Title " .. blue_none .. decorations.bold
 
-  execute "highlight Visual " .. none_blue .. decorations.NONE
+  execute "highlight Visual " .. black_blue .. decorations.NONE
 
   execute "highlight WarningMsg " .. yellow_none .. decorations.NONE
 
