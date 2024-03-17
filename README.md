@@ -5,7 +5,7 @@
 ## General
 ### Requirements
 - A Unix-like operating system
-- [Nerd Font](https://www.nerdfonts.com) (Recommend Iosevka Nerd Font)
+- [Nerd Font](https://www.nerdfonts.com) (Recommend Monaspice Nerd Font)
 - [Git](https://git-scm.com)
 
 ### Optional
@@ -19,19 +19,6 @@
 - [tmux](https://github.com/tmux/tmux)
 - [zsh](https://www.zsh.org)
 
-## Neovim
-### Requirements
-- **Nvim 0.9.2** or later
-
-### Startup time
-```console
-$ vim-startuptime -vimpath=nvim | grep Total
-
-Total Average: 7.036100 msec
-Total Max:     7.313000 msec
-Total Min:     6.744000 msec
-```
-
 ## Sway
 ### Requirements
 - Nerd Font
@@ -44,7 +31,7 @@ Total Min:     6.744000 msec
 
 ## Vim
 ### Requirements
-- **v9.0.1276** or later
+- **v9.0.0000** or later
 
 ### Startup time
 ```console
