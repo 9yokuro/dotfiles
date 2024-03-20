@@ -222,11 +222,11 @@ def SetColorscheme()
 
   execute "highlight SpellBad guisp=NONE " .. black_white .. decorations.undercurl
 
-  highlight link SpellCap SpellBad
+  execute "highlight SpellCap guisp=NONE " .. black_white .. decorations.undercurl
 
-  highlight link SpellLocal SpellBad
+  execute "highlight SpellLocal guisp=NONE " .. black_white .. decorations.undercurl
 
-  highlight link SpellRare SpellBad
+  execute "highlight SpellRare guisp=NONE " .. black_white .. decorations.undercurl
 
   execute "highlight StatusLine " .. white_none .. decorations.NONE
 

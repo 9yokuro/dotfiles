@@ -8,10 +8,10 @@ import "~/.vim/options.vim"
 
 import "~/.vim/plugins.vim"
 
-autocmds.All()
+autocmds.Setup()
 
-keymaps.All()
+keymaps.Setup()
 
-options.All()
+options.Setup()
 
-plugins.All()
+plugins.Setup()

@@ -1,50 +1,85 @@
 vim9script
 
+#=========
 # Plugins
-export def DisableBuiltinPlugins()
-  const plugins = [
-    "did_indent_on",
-    "did_install_default_menus",
-    "did_install_syntax_menu",
-    "did_load_ftplugin",
-    "ebuild_create_on_empty",
-    "glep_create_on_empty",
-    "loaded_2html_plugin",
-    "loaded_gentoo_common",
-    "loaded_getscript",
-    "loaded_getscriptPlugin",
-    "loaded_gzip",
-    "loaded_logipat",
-    "loaded_logiPat",
-    "loaded_man",
-    "loaded_matchit",
-    "loaded_matchparen",
-    "loaded_netrw",
-    "loaded_netrwPlugin",
-    "loaded_newebuild",
-    "loaded_newglep",
-    "loaded_newinitd",
-    "loaded_newmetadata",
-    "loaded_remote_plugins",
-    "loaded_rrhelper",
-    "loaded_shada_plugin",
-    "loaded_spellfile_plugin",
-    "loaded_tar",
-    "loaded_tarPlugin",
-    "loaded_tutor_mode_plugin",
-    "loaded_vimball",
-    "loaded_vimballPlugin",
-    "loaded_zip",
-    "loaded_zipPlugin",
-    "loadedzip",
-    "skip_loading_mswin",
-  ]
+#=========
 
-  for plugin in plugins
-    execute "g:" .. plugin .. " = 1"
-  endfor
-enddef
+export def Setup()
+  #==========================
+  # Disable Standard Plugins
+  #==========================
 
-export def All()
-  DisableBuiltinPlugins()
+  g:did_indent_on = 1
+
+  g:did_install_default_menus = 1
+
+  g:did_install_syntax_menu = 1
+
+  g:did_load_ftplugin = 1
+
+  g:ebuild_create_on_empty = 1
+
+  g:glep_create_on_empty = 1
+
+  g:loaded_2html_plugin = 1
+
+  g:loaded_gentoo_common = 1
+
+  g:loaded_getscript = 1
+
+  g:loaded_getscriptPlugin = 1
+
+  g:loaded_gzip = 1
+
+  g:loaded_logipat = 1
+
+  g:loaded_logiPat = 1
+
+  g:loaded_man = 1
+
+  g:loaded_matchit = 1
+
+  g:loaded_matchparen = 1
+
+  g:loaded_netrw = 1
+
+  g:loaded_netrwPlugin = 1
+
+  g:loaded_netrwSettings = 1
+
+  g:loaded_netrwFileHandlers = 1
+
+  g:loaded_newebuild = 1
+
+  g:loaded_newglep = 1
+
+  g:loaded_newinitd = 1
+
+  g:loaded_newmetadata = 1
+
+  g:loaded_remote_plugins = 1
+
+  g:loaded_rrhelper = 1
+
+  g:loaded_shada_plugin = 1
+
+  g:loaded_spellfile_plugin = 1
+
+  g:loaded_tar = 1
+
+  g:loaded_tarPlugin = 1
+
+  g:loaded_tutor_mode_plugin = 1
+
+  g:loaded_vimball = 1
+
+  g:loaded_vimballPlugin = 1
+
+  g:loaded_zip = 1
+
+  g:loaded_zipPlugin = 1
+
+  g:loadedzip = 1
+
+  g:skip_loading_mswin = 1
 enddef

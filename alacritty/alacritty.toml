@@ -1,22 +1,23 @@
 import = ["~/.config/alacritty/theme.toml"]
 
 [font]
-size = 11.0
+size = 12.0
+offset.y = 1
 
 [font.bold]
-family = "MonaspiceNeNerdFontMono"
+family = "JetBrainsMonoNerdFontMono"
 style = "Bold"
 
 [font.bold_italic]
-family = "MonaspiceNeNerdFontMono"
+family = "JetBrainsMonoNerdFontMono"
 style = "Bold Italic"
 
 [font.italic]
-family = "MonaspiceNeNerdFontMono"
+family = "JetBrainsMonoNerdFontMono"
 style = "Italic"
 
 [font.normal]
-family = "MonaspiceNeNerdFontMono"
+family = "JetBrainsMonoNerdFontMono"
 style = "Regular"
 
 [shell]

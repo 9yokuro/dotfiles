@@ -23,7 +23,7 @@
 
     # Fonts
     noto-fonts-monochrome-emoji
-    (nerdfonts.override { fonts = [ "Monaspace" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     source-han-sans
     source-sans
 
@@ -38,6 +38,7 @@
 
     # Tools
     btop
+    universal-ctags
     dust
     eza
     fastfetch
