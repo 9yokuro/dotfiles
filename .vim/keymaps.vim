@@ -19,7 +19,7 @@ export def Setup()
 
   g:mapleader = ";"
 
-  nnoremap <Space>w <Cmd>write<CR>
+  nnoremap <Space>w <Cmd>update<CR>
 
   nnoremap <Space>q <Cmd>quit<CR>
 
