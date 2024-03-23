@@ -21,8 +21,7 @@ family = "JetBrainsMonoNerdFontMono"
 style = "Regular"
 
 [shell]
-program = "tmux"
-args = ["new-session", "zsh"]
+program = "fish"
 
 [window]
 dynamic_title = true
