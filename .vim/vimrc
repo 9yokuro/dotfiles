@@ -10,8 +10,12 @@ import "~/.vim/plugins.vim"
 
 autocmds.Setup()
 
-keymaps.Setup()
-
-options.Setup()
-
 plugins.Setup()
+
+augroup vimrc
+  autocmd!
+
+  autocmd VimEnter * keymaps.Setup()
+
+  autocmd VimEnter * options.Setup()
+augroup END

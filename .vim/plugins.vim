@@ -82,4 +82,9 @@ export def Setup()
   g:loadedzip = 1
 
   g:skip_loading_mswin = 1
+
+  #========================
+  # Enable filetype plugin
+  #========================
+  filetype plugin indent on
 enddef
