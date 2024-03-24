@@ -158,7 +158,7 @@ export def Setup()
   set path^=.**,/usr/include**
 
   # Use zsh for ! and :! commands.
-  set shell=zsh
+  set shell=fish
 
   # Spell checking will be done.
   set spell
