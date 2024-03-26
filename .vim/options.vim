@@ -9,20 +9,28 @@ export def Setup()
   # Appearance
   #============
 
-  colorscheme alcedo
-
   syntax enable
 
   set background=dark
 
-  set fillchars=stl:─,stlnc:─,vert:│,eob:\\x20
+  set conceallevel=0
+
+  set cmdheight=1
+
+  set fillchars=stl:─,stlnc:─,vert:│,fold:-,foldopen:,foldclose:,foldsep:│,eob:\\x20
+
+  set foldcolumn=0
 
   # Never show status line.
   set laststatus=0
 
   set list
 
-  set listchars=tab:─,trail:─,extends:,precedes:,eol:,nbsp:%
+  set listchars=tab:─,trail:󱁐,extends:,precedes:,eol:,nbsp:
+
+  set nocursorcolumn
+
+  set nocursorline
 
   set noruler
 
@@ -30,11 +38,11 @@ export def Setup()
 
   set noshowmode
 
-  set title
-
   set nowrap
 
   set number
+
+  set pumheight=10
 
   set relativenumber
 
@@ -46,6 +54,8 @@ export def Setup()
   set statusline=─
 
   set termguicolors
+
+  set title
 
   #========
   # Backup
@@ -66,16 +76,29 @@ export def Setup()
 
   set fileencoding=utf-8
 
+  #=========
+  # Folding
+  #=========
+
+  set foldlevel=99
+
+  set foldlevelstart=99
+
+  set foldmethod=manual
+
   #=============
   # Indentation
   #=============
 
-
   set autoindent
+
+  set breakindent
 
   set copyindent
 
   set expandtab
+
+  set preserveindent
 
   set shiftwidth=2
 
@@ -91,19 +114,27 @@ export def Setup()
   # Miscellaneous
   #===============
 
+  set autochdir
+
   set autoread
 
   set backspace=indent,eol,start
 
   set belloff=all
 
-  set clipboard^=unnamed,unnamedplus
-
   set confirm
+
+  set equalalways
 
   set hidden
 
+  set history=100
+
+  set infercase
+
   set lazyredraw
+
+  set matchpairs=(:),{:},[:],<:>
 
   set mouse=a
 
@@ -113,9 +144,13 @@ export def Setup()
 
   set path^=.**,/usr/include**
 
+  set scrolloff=0
+
   set shell=fish
 
   set spell
+
+  set spelllang=en,cjk
 
   set splitbelow
 
@@ -123,11 +158,15 @@ export def Setup()
 
   set tags=tags;,./tags;
 
+  set timeoutlen=500
+
+  set virtualedit=block
+
   set wildchar=<Tab>
 
   set wildmenu
 
-  set wildmode=full,longest
+  set wildmode=full
 
   set wildoptions=fuzzy,pum,tagfile
 

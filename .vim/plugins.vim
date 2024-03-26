@@ -5,6 +5,12 @@ vim9script
 #=========
 
 export def Setup()
+  #==============
+  # Color scheme
+  #==============
+
+  colorscheme alcedo
+
   #==========================
   # Disable Standard Plugins
   #==========================

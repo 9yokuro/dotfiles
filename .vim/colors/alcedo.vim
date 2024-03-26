@@ -1,5 +1,11 @@
 vim9script
 
+if exists("g:loaded_alcedo")
+  finish
+endif
+
+g:loaded_alcedo = 1
+
 const colors = {
   black: "#000810",
   blue: "#007ce9",
@@ -66,7 +72,7 @@ def SetColorscheme()
 
   highlight link Float Constant
 
-  execute "highlight Identifier " .. white_none .. decorations.NONE
+  execute "highlight Identifier " .. white_none .. decorations.bold
 
   highlight link Function Identifier
 

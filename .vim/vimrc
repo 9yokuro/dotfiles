@@ -1,5 +1,7 @@
 vim9script
 
+import "~/.vim/abbreviations.vim"
+
 import "~/.vim/autocmds.vim"
 
 import "~/.vim/keymaps.vim"
@@ -8,14 +10,12 @@ import "~/.vim/options.vim"
 
 import "~/.vim/plugins.vim"
 
+abbreviations.Setup()
+
 autocmds.Setup()
 
+keymaps.Setup()
+
+options.Setup()
+
 plugins.Setup()
-
-augroup vimrc
-  autocmd!
-
-  autocmd VimEnter * keymaps.Setup()
-
-  autocmd VimEnter * options.Setup()
-augroup END

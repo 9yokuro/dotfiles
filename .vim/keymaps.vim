@@ -1,5 +1,7 @@
 vim9script
 
+import "~/.vim/functions.vim"
+
 #=========
 # Keymaps
 #=========
@@ -17,11 +19,52 @@ export def Setup()
   # Miscellaneous
   #===============
 
-  g:mapleader = ";"
+  g:maplocalleader = ","
 
-  nnoremap <Space>w <Cmd>update<CR>
+  g:mapleader = ","
+
+  noremap h <ScriptCmd>functions.QuantizedH()<CR>
+
+  noremap l <ScriptCmd>functions.QuantizedL()<CR>
+
+  noremap H <ScriptCmd>functions.PageUp()<CR>
+
+  noremap L <ScriptCmd>functions.PageDown()<CR>
+
+  nnoremap <Space>s <Cmd>update<CR>
 
   nnoremap <Space>q <Cmd>quit<CR>
+
+  nnoremap <Space>l <Cmd>nohlsearch<CR><Cmd>redraw<CR>
+
+  #=============
+  # Parentheses
+  #=============
+
+  # input -> output
+  # ( -> ()
+  inoremap ( ()<Left>
+
+  # (<CR> -> (
+  #
+  #          )
+  inoremap (<CR> (<CR><CR>)<Up>
+
+  # { -> {}
+  inoremap { {}<Left>
+
+  # {<CR> -> {
+  #
+  #          }
+  inoremap {<CR> {<CR><CR>}<Up>
+
+  # [ -> []
+  inoremap [ []<Left>
+
+  # [<CR> -> [
+  #
+  #          ]
+  inoremap [<CR> [<CR><CR>]<Up>
 
   #==========
   # Quickfix
@@ -43,58 +86,43 @@ export def Setup()
   # Terminal
   #==========
 
-  # Open a terminal in a new tab.
   nnoremap <Space>tt <Cmd>tab terminal<CR>
 
-  # Split current window horizontally and open a terminal.
   nnoremap <Space>ts <Cmd>bo terminal<CR>
 
-  # Split current window vertically and open a terminal.
   nnoremap <Space>tv <Cmd>vert terminal<CR>
 
-  # Open a terminal in a popup window.
-  nnoremap <Space>tf <Cmd>call popup_create(term_start([&shell], #{ hidden: 1, term_finish: 'close'}), #{ border: [], minwidth: winwidth(0) * 6/7, minheight: &lines * 6/7 })<CR>
+  nnoremap <Space>tf <ScriptCmd>functions.PopupTerminal()<CR>
 
   #=========
   # Vimgrep
   #=========
 
-  nnoremap <Space>g :silent vimgrep 
+  nnoremap <Space>g :silent vimgrep  %<Left><Left>
 
   #========
   # Window
   #========
 
-  # Split current window horizontally.
   nnoremap <Space>ws <Cmd>split<CR>
 
-  # Split current window vertically.
   nnoremap <Space>wv <Cmd>vsplit<CR>
 
-  # Close the current window.
   nnoremap <Space>wc <Cmd>close<CR>
 
-  # Move cursor to Nth window left of current one.
   nnoremap <Space>wh <Cmd>wincmd h<CR>
 
-  # Move cursor to Nth window below current one.
   nnoremap <Space>wj <Cmd>wincmd j<CR>
 
-  # Move cursor to Nth window above current one.
   nnoremap <Space>wk <Cmd>wincmd k<CR>
 
-  # Move cursor to Nth window right of current one.
   nnoremap <Space>wl <Cmd>wincmd l<CR>
 
-  # Move the current window to be at the far left.
   nnoremap <Space>wH <Cmd>wincmd H<CR>
 
-  # Move the current window to be at the very bottom.
   nnoremap <Space>wJ <Cmd>wincmd J<CR>
 
-  # Move the current window to be at the very top.
   nnoremap <Space>wK <Cmd>wincmd K<CR>
 
-  # Move the current window to be at the far right.
   nnoremap <Space>wL <Cmd>wincmd L<CR>
 enddef

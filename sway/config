@@ -5,40 +5,22 @@ set $down j
 set $up k
 set $right l
 
-set $term alacritty 
+set $term wezterm
 
-set $menu bemenu-run \
---fn "SourceSans3 12" \
---tb "#000810" \
---tf "#eea47f" \
---fb "#000810" \
---ff "#eedcd2" \
---nb "#000810" \
---nf "#eedcd2" \
---hb "#000810" \
---hf "#007ce9" \
---fbb "#000810" \
---fbf "#007ce9" \
---sb "#000810" \
---sf "#007ce9" \
---ab "#000810" \
---af "#eedcd2" \
---bdr "#007ce9" \
--w -l 3 -p "" -M 800 -B 2 -c
+set $browser firefox
 
 output * bg ~/.config/sway/star.jpg fill
 
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+q kill
-bindsym $mod+d exec $menu
-floating_modifier $mod normal
+bindsym $mod+d exec $browser
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e mode "exit"
 
 mode "exit" {
     
-    bindsym r exec doas /sbin/openrc-shutdown -r now
-    bindsym p exec doas /sbin/openrc-shutdown -p now
+    bindsym r exec doas /usr/sbin/openrc-shutdown -r now
+    bindsym p exec doas /usr/sbin/openrc-shutdown -p now
     bindsym e exec swaymsg exit
 
     bindsym Escape mode "default"
@@ -80,15 +62,6 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-bindsym $mod+f floating toggle
-
-bindsym $mod+Shift+f focus mode_toggle
-
-bindsym $mod+c focus child
-
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
-
 bindsym $mod+Shift+w exec grim
 
 mode "resize" {
@@ -107,9 +80,13 @@ bindsym $mod+r mode "resize"
 
 input * {
 
-	xkb_layout "jp"
-	xkb_options "ctrl:nocaps"
+  xkb_layout "jp"
+  xkb_options "ctrl:nocaps"
 
+}
+
+bar {
+  swaybar_command waybar
 }
 
 focus_follows_mouse  no
@@ -121,15 +98,8 @@ gaps right 5
 gaps left 5
 gaps inner 10
 
-exec waybar
 exec ibus-daemon --daemonize
 exec gentoo-pipewire-launcher
-exec mako \
---font "SourceSans3" \
---background-color "#000810" \
---text-color "#eedcd2" \
---border-color "#007ce9" \
---border-radius 10 \
---border-size 1 \
+exec mako
 
 include /etc/sway/config.d/*
