@@ -45,13 +45,17 @@ export def Setup()
 
   nnoremap <C-j> "zdd"zp
 
+  nnoremap <C-l> "zdaWEa<Space><Esc>"zpx<Left>
+
+  nnoremap <C-h> "zdiWB"zPa<Space><Esc>E<Right>x2B
+
   vnoremap <C-k> "zx<Up>"zP`[V`]
 
   vnoremap <C-j> "zx"zp`[V`]
 
-  nnoremap <C-CR> mzo<ESC>`z
+  nnoremap <C-CR> mzo<Esc>`z
 
-  nnoremap <C-S-CR> mzO<ESC>`z
+  nnoremap <C-S-CR> mzO<Esc>`z
 
   inoremap <C-[> <Esc><Right>
 
