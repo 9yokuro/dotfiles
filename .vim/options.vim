@@ -5,155 +5,218 @@ vim9script
 #=========
 
 export def Setup()
-  #============
-  # Appearance
-  #============
+  #===
+  # A
+  #===
 
-  # Enable syntax highlighting
-  syntax enable
+  set ambiwidth=single
 
+  # Change the current working directory to the directory containing the file
+  # which was opened or selected
+  set autochdir
+
+  # Copy indent from current line when starting a new line
+  set autoindent
+
+  # When a file has been detected to have been changed outside of Vim and it
+  # has not been changed inside of Vim, automatically read it again
+  set autoread
+
+  #===
+  # B
+  #===
+
+  # Use colors that look good on a dark background
   set background=dark
 
-  set conceallevel=0
-
-  set cmdheight=1
-
-  set fillchars=stl:─,stlnc:─,vert:│,fold:-,foldopen:,foldclose:,foldsep:│,eob:\\x20
-
-  set foldcolumn=0
-
-  # Never show status line.
-  set laststatus=0
-
-  set list
-
-  set listchars=tab:─,trail:󱁐,extends:,precedes:,eol:,nbsp:
-
-  set nocursorcolumn
-
-  set nocursorline
-
-  set noruler
-
-  set noshowcmd
-
-  set noshowmode
-
-  set nowrap
-
-  set number
-
-  set pumheight=10
-
-  set relativenumber
-
-  # Never show tab line.
-  set showtabline=0
-
-  set signcolumn=number
-
-  set statusline=─
-
-  set termguicolors
-
-  set title
-
-  #========
-  # Backup
-  #========
+  # Allow backspacing over autoindent, line breaks, and start of insert
+  set backspace=indent,eol,start
 
   # Backup current file, deleted afterwards.
   set nobackup
 
-  set writebackup
+  # Do not ring the bell
+  set belloff=all
 
-  #==========
-  # Encoding
-  #==========
+  # Every wrapped line will continue visually indented
+  set breakindent
 
-  set ambiwidth=single
+  #===
+  # C
+  #===
 
+  # Number of screen lines to use for the command-line
+  set cmdheight=1
+
+  # Show text normally
+  set conceallevel=0
+
+  # Raise a dialog asking if you wish to save the current file(s)
+  set confirm
+
+  # Copy the structure of the existing lines indent when autoindenting a new
+  # line
+  set copyindent
+
+  # Do not highlight the screen column of the cursor
+  set nocursorcolumn
+
+  # Do not highlight the text line of the cursor
+  set nocursorline
+
+  #===
+  # E
+  #===
+
+  # Use utf-8
   set encoding=utf-8
 
+  # All the windows are automatically made the same size after splitting or
+  # closing a window
+  set equalalways
+
+  # Use the appropriate number of spaces to insert a <Tab>
+  set expandtab
+
+  #===
+  # F
+  #===
+
+  # Use utf-8
   set fileencoding=utf-8
 
-  #=========
-  # Folding
-  #=========
+  # Use \n
+  set fileformat=unix
+
+  # Characters to fill the statuslines, vertical separators and special lines
+  # in the window
+  set fillchars=stl:─,stlnc:─,vert:│,fold:-,foldopen:,foldclose:,foldsep:│,eob:\\x20
+
+  # Do not show a column at the side of the window which indicates open and
+  # closed folds
+  set foldcolumn=0
 
   set foldlevel=99
 
   set foldlevelstart=99
 
+  # Create folds manually
   set foldmethod=manual
 
-  #=============
-  # Indentation
-  #=============
+  set nofsync
 
-  set autoindent
+  #===
+  # G
+  #===
 
-  set breakindent
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
 
-  set copyindent
+  # Use ripgrep instead of grep
+  set grepprg=rg\ --vimgrep\ --no-heading\ $*
 
-  set expandtab
+  #===
+  # H
+  #===
+
+  # Hidden a buffer when it is abandoned
+  set hidden
+
+  # Highlight all matching search pattern
+  set hlsearch
+
+  set history=100
+
+  #===
+  # I
+  #===
+
+  # Ignore case in search patterns, cmdline-completion, etc
+  set ignorecase
+
+  # Enable incremental search
+  set incsearch
+
+  set infercase
+
+  #===
+  # L
+  #===
+
+  # Do not show status line.
+  set laststatus=0
+
+  set lazyredraw
+
+  # Show invisible characters
+  set list
+
+  # Strings to use in 'list' mode and for the :list command
+  set listchars=tab:─,trail:󱁐,extends:,precedes:,eol:,nbsp:
+
+  #===
+  # M
+  #===
+
+  set matchpairs=(:),{:},[:],<:>
+
+  set matchtime=1
+
+  # Enable the use of mouse
+  set mouse=a
+
+  #===
+  # N
+  #===
+
+  # Print the line number in front of each line
+  set number
+
+  #===
+  # P
+  #===
+
+  set path^=.**,/usr/include**
 
   set preserveindent
 
+  set pumheight=10
+
+  #===
+  # R
+  #===
+
+  set relativenumber
+
+  set noruler
+
+  #===
+  # S
+  #===
+
+  set scrolloff=0
+
+  set shell=fish
+
   set shiftwidth=2
+
+  set noshowcmd
+
+  set showmatch
+
+  set noshowmode
+
+  # Do not show tab line.
+  set showtabline=0
+
+  set signcolumn=number
+
+  set smartcase
 
   set smartindent
 
   set smarttab
 
   set softtabstop=2
-
-  set tabstop=2
-
-  #===============
-  # Miscellaneous
-  #===============
-
-  set autochdir
-
-  set autoread
-
-  set backspace=indent,eol,start
-
-  set belloff=all
-
-  set confirm
-
-  set equalalways
-
-  set fileformat=unix
-
-  set hidden
-
-  set history=100
-
-  set infercase
-
-  set lazyredraw
-
-  set matchpairs=(:),{:},[:],<:>
-
-  set matchtime=1
-
-  set mouse=a
-
-  set nofsync
-
-  set noswapfile
-
-  set path^=.**,/usr/include**
-
-  set scrolloff=0
-
-  set shell=fish
-
-  set showmatch
 
   set spell
 
@@ -163,11 +226,35 @@ export def Setup()
 
   set splitright
 
+  set statusline=─
+
+  set noswapfile
+
+  #===
+  # T
+  #===
+
+  set tabstop=2
+
   set tags=tags;,./tags;
+
+  set termguicolors
 
   set timeoutlen=500
 
+  set title
+
+  set ttyfast
+
+  #===
+  # V
+  #===
+
   set virtualedit=block
+
+  #===
+  # W
+  #===
 
   set wildchar=<Tab>
 
@@ -177,30 +264,16 @@ export def Setup()
 
   set wildoptions=fuzzy,pum,tagfile
 
-  #========
-  # Search
-  #========
-
-  set hlsearch
-
-  set ignorecase
-
-  set incsearch
-
-  set smartcase
+  set nowrap
 
   set wrapscan
 
-  #==========
-  # Terminal
-  #==========
+  set writebackup
 
-  set ttyfast
+  #========
+  # Others
+  #========
 
-  #======
-  # grep
-  #======
-  set grepformat=%f:%l:%c:%m,%f:%l:%m
-
-  set grepprg=rg\ --vimgrep\ --no-heading\ $*
+  # Enable syntax highlighting
+  syntax enable
 enddef

@@ -13,7 +13,11 @@ export def Setup()
 
   nnoremap [b <Cmd>bprevious<CR>
 
+  nnoremap [B <Cmd>bfirst<CR>
+
   nnoremap ]b <Cmd>bnext<CR>
+
+  nnoremap ]B <Cmd>blast<CR>
 
   #===============
   # Miscellaneous
@@ -72,7 +76,11 @@ export def Setup()
 
   nnoremap [q <Cmd>cprevious<CR>
 
+  nnoremap [Q <Cmd>cfirst<CR>
+
   nnoremap ]q <Cmd>cnext<CR>
+
+  nnoremap ]Q <Cmd>clast<CR>
 
   #=====
   # Tab
@@ -80,7 +88,11 @@ export def Setup()
 
   nnoremap [t <Cmd>tabprevious<CR>
 
+  nnoremap [T <Cmd>tabfirst<CR>
+
   nnoremap ]t <Cmd>tabnext<CR>
+
+  nnoremap ]T <Cmd>tablast<CR>
 
   #==========
   # Terminal
