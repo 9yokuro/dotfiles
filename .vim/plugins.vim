@@ -1,5 +1,11 @@
 vim9script
 
+#=================
+# TODO
+#
+# Install plugins
+#=================
+
 #=========
 # Plugins
 #=========
@@ -92,5 +98,5 @@ export def Setup()
   #========================
   # Enable filetype plugin
   #========================
-  filetype plugin indent on
+  filetype indent plugin on
 enddef

@@ -126,7 +126,7 @@ def SetColorscheme()
 
   execute "highlight Error " .. white_none .. decorations.NONE
 
-  execute "highlight Todo " .. white_none .. decorations.NONE
+  execute "highlight Todo " .. white_none .. decorations.bold
 
   execute "highlight ColorColumn " .. white_black .. decorations.NONE
 
