@@ -94,11 +94,11 @@ export def Setup()
 
   nnoremap <Space>tf <ScriptCmd>functions.PopupTerminal()<CR>
 
-  #=========
-  # Vimgrep
-  #=========
+  #======
+  # grep
+  #======
 
-  nnoremap <Space>g :silent vimgrep  %<Left><Left>
+  nnoremap <Space>g :silent grep  %<Left><Left>
 
   #========
   # Window

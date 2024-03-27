@@ -64,4 +64,12 @@ config.enable_tab_bar = false
 -- Key bindings
 config.disable_default_key_bindings = true
 
+config.keys = {
+  {
+    key = "{",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.ActivateCopyMode,
+  },
+}
+
 return config

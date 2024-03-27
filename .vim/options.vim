@@ -9,6 +9,7 @@ export def Setup()
   # Appearance
   #============
 
+  # Enable syntax highlighting
   syntax enable
 
   set background=dark
@@ -126,6 +127,8 @@ export def Setup()
 
   set equalalways
 
+  set fileformat=unix
+
   set hidden
 
   set history=100
@@ -135,6 +138,8 @@ export def Setup()
   set lazyredraw
 
   set matchpairs=(:),{:},[:],<:>
+
+  set matchtime=1
 
   set mouse=a
 
@@ -147,6 +152,8 @@ export def Setup()
   set scrolloff=0
 
   set shell=fish
+
+  set showmatch
 
   set spell
 
@@ -189,4 +196,11 @@ export def Setup()
   #==========
 
   set ttyfast
+
+  #======
+  # grep
+  #======
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+
+  set grepprg=rg\ --vimgrep\ --no-heading\ $*
 enddef
