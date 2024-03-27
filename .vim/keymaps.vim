@@ -39,7 +39,21 @@ export def Setup()
 
   nnoremap <Space>q <Cmd>quit<CR>
 
-  nnoremap <Space>l <Cmd>nohlsearch<CR><Cmd>redraw<CR>
+  nnoremap <Space>l <Cmd>nohlsearch<CR><Cmd>redraw!<CR>
+
+  nnoremap <C-k> "zdd<Up>"zP
+
+  nnoremap <C-j> "zdd"zp
+
+  vnoremap <C-k> "zx<Up>"zP`[V`]
+
+  vnoremap <C-j> "zx"zp`[V`]
+
+  nnoremap <C-CR> mzo<ESC>`z
+
+  nnoremap <C-S-CR> mzO<ESC>`z
+
+  inoremap <C-[> <Esc><Right>
 
   #=============
   # Parentheses
