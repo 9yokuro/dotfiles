@@ -9,9 +9,9 @@ export def Setup()
 
   cnoreabbrev <expr> s getcmdtype() .. getcmdline() ==# ":s" ? [getchar(), ""][1] .. "%s///g<Left><Left>" : "s"
 
-  cnoreabbrev <expr> g getcmdtype() .. getcmdline() ==# ":g" ? [getchar(), ""][1] .. ":silent grep  %<Left><Left>" : "g"
+  cnoreabbrev <expr> g getcmdtype() .. getcmdline() ==# ":g" ? [getchar(), ""][1] .. "silent grep  %<Left><Left>" : "g"
 
-  cnoreabbrev <expr> vg getcmdtype() .. getcmdline() ==# ":vg" ? [getchar(), ""][1] .. ":silent vimgrep  %<Left><Left>" : "vg"
+  cnoreabbrev <expr> vg getcmdtype() .. getcmdline() ==# ":vg" ? [getchar(), ""][1] .. "silent vimgrep  %<Left><Left>" : "vg"
 
   inoreabbrev misc miscellaneous
 

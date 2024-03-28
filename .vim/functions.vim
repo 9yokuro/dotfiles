@@ -116,7 +116,7 @@ def OnTheFirstWord(): bool
 
   setpos(".", pos)
 
-  execute "normal! W\<Left>B"
+  execute "normal! WhB"
 
   if getpos(".") == start_of_the_line
     return true
@@ -138,7 +138,7 @@ def OnTheLastWord(): bool
 
   setpos(".", pos)
 
-  execute "normal! gE\<Right>E"
+  execute "normal! gElE"
 
   if getpos(".") == end_of_the_line
     return true
@@ -154,7 +154,7 @@ def NumberOfWords(): number
 enddef
 
 export def SwapL()
-  if OnTheLastWord() || NumberOfWords() == 1
+  if OnTheLastWord() || NumberOfWords() <= 1
     return
   endif
 
@@ -167,14 +167,14 @@ export def SwapL()
   execute "normal! a\<Space>\<Esc>\"zp\"_x"
 
   if getpos(".") != EndOfTheLine()
-    execute "normal! \<Left>"
+    execute "normal! h"
   endif
 enddef
 
 export def SwapH()
-  if OnTheFirstWord() || NumberOfWords() == 1
+  if OnTheFirstWord() || NumberOfWords() <= 1
     return
   endif
 
-  execute "normal! \"zdiWB\"zPa\<Space>\<Esc>E\<Right>\"_xF\<Space>\<Left>"
+  execute "normal! \"zdiWB\"zPa\<Space>\<Esc>El\"_xF\<Space>h"
 enddef

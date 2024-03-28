@@ -4,12 +4,13 @@ from os import path, remove, symlink
 from typing import Final
 
 FILES: Final[list[str]] = [
-    "~/.config/alacritty",
+    "~/.vim",
     "~/.config/fish",
     "~/.config/libskk",
+    "~/.config/mako",
     "~/.config/sway",
     "~/.config/waybar",
-    "~/.vim",
+    "~/.config/wezterm",
 ]
 
 
