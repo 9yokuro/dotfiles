@@ -49,6 +49,98 @@ config.font_size = 13.0
 
 config.line_height = 1.2
 
+config.enable_tab_bar = false
+
+-- Key bindings
+config.disable_default_key_bindings = true
+
+config.keys = {
+  {
+    key = "[",
+    mods = "OPT",
+    action = wezterm.action.ActivateCopyMode,
+  },
+
+  {
+    key = "t",
+    mods = "OPT",
+    action = wezterm.action.SpawnCommandInNewTab({
+      cwd = "~",
+    }),
+  },
+
+  {
+    key = "v",
+    mods = "OPT",
+    action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
+  },
+
+  {
+    key = "s",
+    mods = "OPT",
+    action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+  },
+
+  {
+    key = "h",
+    mods = "OPT",
+    action = wezterm.action.ActivatePaneDirection("Left"),
+  },
+
+  {
+    key = "j",
+    mods = "OPT",
+    action = wezterm.action.ActivatePaneDirection("Down"),
+  },
+
+  {
+    key = "k",
+    mods = "OPT",
+    action = wezterm.action.ActivatePaneDirection("Up"),
+  },
+
+  {
+    key = "l",
+    mods = "OPT",
+    action = wezterm.action.ActivatePaneDirection("Right"),
+  },
+
+  {
+    key = "H",
+    mods = "OPT|SHIFT",
+    action = wezterm.action.AdjustPaneSize({ "Left", 1 }),
+  },
+
+  {
+    key = "J",
+    mods = "OPT|SHIFT",
+    action = wezterm.action.AdjustPaneSize({ "Down", 1 }),
+  },
+
+  {
+    key = "K",
+    mods = "OPT|SHIFT",
+    action = wezterm.action.AdjustPaneSize({ "Up", 1 }),
+  },
+
+  {
+    key = "L",
+    mods = "OPT|SHIFT",
+    action = wezterm.action.AdjustPaneSize({ "Right", 1 }),
+  },
+}
+
+for i = 1, 8 do
+  table.insert(config.keys, {
+    key = tostring(i),
+    mods = "OPT",
+    action = wezterm.action.ActivateTab(i - 1),
+  })
+end
+
+-- Miscellaneous
+config.use_ime = true
+
 -- Window
 config.window_background_opacity = 0.5
 
@@ -57,19 +149,6 @@ config.window_padding = {
   right = 0,
   top = 0,
   bottom = 0,
-}
-
-config.enable_tab_bar = false
-
--- Key bindings
-config.disable_default_key_bindings = true
-
-config.keys = {
-  {
-    key = "{",
-    mods = "CTRL|SHIFT",
-    action = wezterm.action.ActivateCopyMode,
-  },
 }
 
 return config
