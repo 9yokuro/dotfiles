@@ -84,7 +84,7 @@ export def Setup()
   # (<CR> -> (
   #
   #          )
-  inoremap (<CR> (<CR><CR>)<Up>
+  inoremap (<CR> <ScriptCmd>functions.ParenthesesNL("(", ")")<CR>
 
   # { -> {}
   inoremap { {}<Left>
@@ -94,7 +94,7 @@ export def Setup()
   # {<CR> -> {
   #
   #          }
-  inoremap {<CR> {<CR><CR>}<Up>
+  inoremap {<CR> <ScriptCmd>functions.ParenthesesNL("{", "}")<CR>
 
   # [ -> []
   inoremap [ []<Left>
@@ -104,7 +104,7 @@ export def Setup()
   # [<CR> -> [
   #
   #          ]
-  inoremap [<CR> [<CR><CR>]<Up>
+  inoremap [<CR> <ScriptCmd>functions.ParenthesesNL("[", "]")<CR>
 
   #==========
   # Quickfix

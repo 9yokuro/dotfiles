@@ -34,6 +34,10 @@ export def QuantizedH(cnt: number = 1)
 
   normal! h
 
+  if NumberOfWords() == 0
+    return
+  endif
+
   while InIndent() && NotFitIndent()
     normal! h
   endwhile
@@ -47,6 +51,10 @@ export def QuantizedL(cnt: number = 1)
   endif
 
   normal! l
+
+  if NumberOfWords() == 0
+    return
+  endif
 
   while InIndent() && NotFitIndent()
     normal! l
@@ -177,4 +185,28 @@ export def SwapH()
   endif
 
   execute "normal! \"zdiWB\"zPa\<Space>\<Esc>El\"_xF\<Space>h"
+enddef
+
+export def ParenthesesNL(open: string, close: string)
+  var start_of_the_line = StartOfTheLine()[2]
+
+  execute "normal! i" .. open .. "\<CR>\<Esc>"
+
+  if start_of_the_line == 1
+    execute "normal! i\<CR>" .. close .. "\<Esc>k"
+  else
+    while col(".") != start_of_the_line
+      execute "normal! a\<Tab>\<Esc>"
+    endwhile
+
+    execute "normal! \"zyy\"zpa" .. close .. "\<Esc>k"
+  endif
+
+  execute "normal! a\<Tab>\<Esc>"
+
+  var pos = getpos(".")
+
+  pos[2] += 1
+
+  setpos(".", pos)
 enddef
