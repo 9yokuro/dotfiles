@@ -81,15 +81,59 @@ export def PageUp()
   normal! 0
 enddef
 
-export def SwapL()
+def StartOfTheLine(): list<number>
+  var pos = getpos(".")
+
+  execute "normal! ^"
+
+  var start_of_the_line = getpos(".")
+
+  setpos(".", pos)
+
+  return start_of_the_line
+enddef
+
+def EndOfTheLine(): list<number>
   var pos = getpos(".")
 
   execute "normal! g_"
 
   var end_of_the_line = getpos(".")
 
+  setpos(".", pos)
+
+  return end_of_the_line
+enddef
+
+def OnTheFirstWord(): bool
+  var pos = getpos(".")
+
+  var start_of_the_line = StartOfTheLine()
+
+  if pos == start_of_the_line
+    return true
+  endif
+
+  setpos(".", pos)
+
+  execute "normal! W\<Left>B"
+
+  if getpos(".") == start_of_the_line
+    return true
+  endif
+
+  setpos(".", pos)
+
+  return false
+enddef
+
+def OnTheLastWord(): bool
+  var pos = getpos(".")
+
+  var end_of_the_line = EndOfTheLine()
+
   if pos == end_of_the_line
-    return
+    return true
   endif
 
   setpos(".", pos)
@@ -97,10 +141,22 @@ export def SwapL()
   execute "normal! gE\<Right>E"
 
   if getpos(".") == end_of_the_line
-    return
+    return true
   endif
 
   setpos(".", pos)
+
+  return false
+enddef
+
+def NumberOfWords(): number
+  return len(split(getline("."), " "))
+enddef
+
+export def SwapL()
+  if OnTheLastWord() || NumberOfWords() == 1
+    return
+  endif
 
   execute "normal! \"zdaW"
 
@@ -110,35 +166,15 @@ export def SwapL()
 
   execute "normal! a\<Space>\<Esc>\"zp\"_x"
 
-  if getpos(".") != end_of_the_line
+  if getpos(".") != EndOfTheLine()
     execute "normal! \<Left>"
   endif
 enddef
 
 export def SwapH()
-  var pos = getpos(".")
-
-  execute "normal! ^"
-
-  var start_of_the_line = getpos(".")
-
-  if pos == start_of_the_line
+  if OnTheFirstWord() || NumberOfWords() == 1
     return
   endif
 
-  setpos(".", pos)
-
-  execute "normal! W\<Left>B"
-
-  if getpos(".") == start_of_the_line
-    return
-  endif
-
-  setpos(".", pos)
-
-  execute "normal! \"zdiWB"
-
-  var length = strchars(expand("<cWORD>"))
-
-  execute "normal! \"zPa\<Space>\<Esc>E\<Right>\"_xF\<Space>\<Left>"
+  execute "normal! \"zdiWB\"zPa\<Space>\<Esc>E\<Right>\"_xF\<Space>\<Left>"
 enddef

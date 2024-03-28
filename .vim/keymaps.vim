@@ -142,12 +142,6 @@ export def Setup()
 
   nnoremap <Space>tf <ScriptCmd>functions.PopupTerminal()<CR>
 
-  #======
-  # grep
-  #======
-
-  nnoremap <Space>g :silent grep  %<Left><Left>
-
   #========
   # Window
   #========
