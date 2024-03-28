@@ -1,6 +1,6 @@
 = dotfiles
 
-image::https://github.com/9yokuro/dotfiles/images/terminal.png[Terminal]
+image::images/terminal.png[Terminal]
 
 == General
 === Requirements
