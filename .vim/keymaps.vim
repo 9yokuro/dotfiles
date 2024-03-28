@@ -43,7 +43,7 @@ export def Setup()
 
   nnoremap <Space>q <Cmd>quit<CR>
 
-  nnoremap <Space>l <Cmd>nohlsearch<CR><Cmd>redraw!<CR>
+  nnoremap <Space>l <Cmd>nohlsearch<CR><Cmd>let @/ = ""<CR><Cmd>redraw!<CR>
 
   nnoremap <C-k> "zdd<Up>"zP
 
