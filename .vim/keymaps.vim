@@ -23,19 +23,23 @@ export def Setup()
   # Miscellaneous
   #===============
 
-  g:maplocalleader = ","
+  g:maplocalleader = "\\"
 
-  g:mapleader = ","
+  g:mapleader = "\\"
 
   noremap h <ScriptCmd>functions.QuantizedH()<CR>
 
   noremap l <ScriptCmd>functions.QuantizedL()<CR>
 
+  noremap j gj
+
+  noremap k gk
+
   noremap H <ScriptCmd>functions.PageUp()<CR>
 
   noremap L <ScriptCmd>functions.PageDown()<CR>
 
-  nnoremap <Space>s <Cmd>update<CR>
+  nnoremap <Space>u <Cmd>update<CR>
 
   nnoremap <Space>q <Cmd>quit<CR>
 
@@ -45,9 +49,9 @@ export def Setup()
 
   nnoremap <C-j> "zdd"zp
 
-  nnoremap <C-l> "zdaWEa<Space><Esc>"zpx<Left>
+  nnoremap <C-l> <ScriptCmd>functions.SwapL()<CR>
 
-  nnoremap <C-h> "zdiWB"zPa<Space><Esc>E<Right>x2B
+  nnoremap <C-h> <ScriptCmd>functions.SwapH()<CR>
 
   vnoremap <C-k> "zx<Up>"zP`[V`]
 
@@ -59,6 +63,14 @@ export def Setup()
 
   inoremap <C-[> <Esc><Right>
 
+  nnoremap Y y$
+
+  nnoremap p ]p
+
+  nnoremap P ]P
+
+  nnoremap x "_x
+
   #=============
   # Parentheses
   #=============
@@ -66,6 +78,8 @@ export def Setup()
   # input -> output
   # ( -> ()
   inoremap ( ()<Left>
+
+  cnoremap <expr> ( getcmdtype() ==# ":" ? "()<Left>" : "("
 
   # (<CR> -> (
   #
@@ -75,6 +89,8 @@ export def Setup()
   # { -> {}
   inoremap { {}<Left>
 
+  cnoremap <expr> { getcmdtype() ==# ":" ? "{}<Left>" : "{"
+
   # {<CR> -> {
   #
   #          }
@@ -82,6 +98,8 @@ export def Setup()
 
   # [ -> []
   inoremap [ []<Left>
+
+  cnoremap <expr> [ getcmdtype() ==# ":" ? "[]<Left>" : "["
 
   # [<CR> -> [
   #

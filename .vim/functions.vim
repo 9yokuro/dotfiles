@@ -80,3 +80,65 @@ export def PageUp()
 
   normal! 0
 enddef
+
+export def SwapL()
+  var pos = getpos(".")
+
+  execute "normal! g_"
+
+  var end_of_the_line = getpos(".")
+
+  if pos == end_of_the_line
+    return
+  endif
+
+  setpos(".", pos)
+
+  execute "normal! gE\<Right>E"
+
+  if getpos(".") == end_of_the_line
+    return
+  endif
+
+  setpos(".", pos)
+
+  execute "normal! \"zdaW"
+
+  if strchars(expand("<cWORD>")) != 1
+    normal! E
+  endif
+
+  execute "normal! a\<Space>\<Esc>\"zp\"_x"
+
+  if getpos(".") != end_of_the_line
+    execute "normal! \<Left>"
+  endif
+enddef
+
+export def SwapH()
+  var pos = getpos(".")
+
+  execute "normal! ^"
+
+  var start_of_the_line = getpos(".")
+
+  if pos == start_of_the_line
+    return
+  endif
+
+  setpos(".", pos)
+
+  execute "normal! W\<Left>B"
+
+  if getpos(".") == start_of_the_line
+    return
+  endif
+
+  setpos(".", pos)
+
+  execute "normal! \"zdiWB"
+
+  var length = strchars(expand("<cWORD>"))
+
+  execute "normal! \"zPa\<Space>\<Esc>E\<Right>\"_xF\<Space>\<Left>"
+enddef

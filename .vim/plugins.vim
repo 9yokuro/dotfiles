@@ -3,7 +3,8 @@ vim9script
 #=================
 # TODO
 #
-# Install plugins
+# Install dpp.vim
+# Install ddu.vim
 #=================
 
 #=========
@@ -98,5 +99,6 @@ export def Setup()
   #========================
   # Enable filetype plugin
   #========================
+
   filetype indent plugin on
 enddef
