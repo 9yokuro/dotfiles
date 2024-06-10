@@ -1,0 +1,30 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: NotoSans;
+  font-size: 13px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background: transparent;
+  color: #333333;
+}
+
+#workspaces button.focused {
+  background: #0d0d0d;
+  border-bottom: 1px solid #737373;
+  color: #ffffff;
+}
+
+#mode, #clock {
+  background: #0d0d0d;
+  border-bottom: 1px solid #737373;
+  padding: 0 10px;
+}
