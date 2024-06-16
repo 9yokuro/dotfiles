@@ -7,24 +7,29 @@
 }
 
 window#waybar {
-  background: rgba(0, 0, 0, 0.5);
-  color: #ffffff;
+  background: #121212;
+  color: #FFFFFF;
 }
 
 #workspaces button {
   padding: 0 5px;
   background: transparent;
-  color: #333333;
+  color: #242B33;
 }
 
 #workspaces button.focused {
-  background: #0d0d0d;
-  border-bottom: 1px solid #737373;
-  color: #ffffff;
+  background: #171C21;
+  border-bottom: 1px solid #4F8BC2;
+  color: #FFFFFF;
 }
 
-#mode, #clock {
-  background: #0d0d0d;
-  border-bottom: 1px solid #737373;
+#clock {
+  border-bottom: 1px solid #4F8BC2;
+  padding: 0 10px;
+}
+
+#mode {
+  background: #171C21;
+  border-bottom: 1px solid #4F8BC2;
   padding: 0 10px;
 }
