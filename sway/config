@@ -97,6 +97,7 @@ bindsym $mod+Shift+e mode "exit"
 mode "menu" {
   bindsym b exec firefox-bin; mode "default"
   bindsym e exec emacs; mode "default"
+  bindsym g exec grim; mode "default"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
