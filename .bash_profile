@@ -21,6 +21,7 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
 export DOTFILES="${HOME}/dotfiles"
+export VIM="${HOME}/vim"
 
 if [[ -f ~/.bashrc ]]; then
   . ~/.bashrc

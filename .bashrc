@@ -77,8 +77,9 @@ function gentoo_clean() {
 }
 
 function vim_install() {
-  git clone https://github.com/vim/vim.git
-  cd vim/ || exit
+  cd
+  git clone https://github.com/vim/vim.git "${VIM:=${HOME}/vim}"
+  cd "${VIM}" || exit
   env CFLAGS="-O2 -pipe -march=native" make -j12
 
   if type doas > /dev/null; then
@@ -89,13 +90,29 @@ function vim_install() {
 }
 
 function vim_upgrade() {
+  cd "${VIM:-${HOME}/vim}"
+
   if [[ $(git pull) = "Already up to date." ]]; then
     return 0
   fi
+
+  make -j12
 
   if type doas > /dev/null; then
     doas make install
   else
     sudo make install
   fi
+}
+
+function skk_jisyo_install() {
+  cd
+  skk_dir="${HOME}/.skk"
+  mkdir --parents --verbose "${skk_dir}"
+  cd "${skk_dir}" || exit
+  wget https://skk-dev.github.io/dict/SKK-JISYO.L.gz{,.md5}
+  md5sum --check SKK-JISYO.L.gz.md5 || exit
+  rm SKK-JISYO.L.gz.md5
+  gunzip SKK-JISYO.L.gz
+  cd
 }
