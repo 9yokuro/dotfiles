@@ -5,3 +5,11 @@
 	editor = vim
 [init]
 	defaultBranch = main
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[color]
+	ui = true
