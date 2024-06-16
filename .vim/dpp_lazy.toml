@@ -1,0 +1,29 @@
+[[plugins]]
+repo = "9yokuro/lazurite.vim"
+on_event = "VimEnter"
+hook_source = '''
+  syntax enable
+  colorscheme lazurite
+  set termguicolors
+'''
+
+[[plugins]]
+repo = "vim-jp/vimdoc-ja"
+on_event = "VimEnter"
+hook_add = '''
+  set helplang=ja,en
+'''
+
+[[plugins]]
+repo = "vim-skk/skkeleton"
+depends = "denops.vim"
+on_map = { ic = "<Plug>(skkeleton-toggle)" }
+hook_add = '''
+  imap <C-j> <Plug>(skkeleton-toggle)
+  cmap <C-j> <Plug>(skkeleton-toggle)
+'''
+hook_source = '''
+  call skkeleton#config({
+        \   'globalDictionaries': [["~/.skk/SKK-JISYO.L", ""]],
+        \ })
+'''

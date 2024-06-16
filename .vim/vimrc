@@ -1,0 +1,35 @@
+vim9script
+
+# Disable unneeded plugins
+g:loaded_netrwPlugin = 1
+g:loaded_logiPat = 1
+g:loaded_matchparen = 1
+g:loaded_gzip = 1
+g:loaded_zipPlugin = 1
+g:loaded_vimballPlugin = 1
+g:loaded_tarPlugin = 1
+g:loaded_2html_plugin = 1
+g:loaded_getscriptPlugin = 1
+g:loaded_manpager_plugin = 1
+g:loaded_rrhelper = 1
+
+g:mapleader = " "
+
+augroup my_vimrc_autocmd
+  autocmd!
+  autocmd WinClosed * wincmd p
+  autocmd VimResized * wincmd =
+  autocmd QuickFixCmdPost *grep* copen
+  autocmd FileType qf setlocal norelativenumber
+  autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
+augroup END
+
+command W update
+
+cnoreabbrev <expr> gr getcmdtype() .. getcmdline() ==# ":gr"
+      \	? [getchar(), ""][1] .. "grep  %<Left><Left>" : "gr"
+
+const vim_config_home = expand("~/.vim")
+execute "source" vim_config_home .. "/dpp.vim"
+execute "source" vim_config_home .. "/options.vim"
+execute "source" vim_config_home .. "/map.vim"
