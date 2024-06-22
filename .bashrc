@@ -5,7 +5,7 @@ fi
 function indicate_information() {
   exit_status=$?
 
-  if git_branch=$(git branch --show-current 2> /dev/null); then
+  if git_branch="$(git branch --show-current 2> /dev/null)"; then
     echo -n "$(tput setaf 5)${git_branch}$(tput sgr0) "
   fi
 
@@ -22,6 +22,7 @@ PS1="${CYAN}\w${RESET} \$(indicate_information)\n${GREEN}>${RESET} "
 
 HISTCONTROL="erasedups:ignoreboth"
 
+alias ".."="cd .."
 alias c="clear"
 alias cp="cp --reflink=auto --verbose"
 alias e="exit"
@@ -41,62 +42,50 @@ alias tree1="tree -L 1"
 alias v="vim"
 
 function gentoo_upgrade() {
+  local SU
+
   if type doas > /dev/null; then
-    doas emerge-webrsync
-    doas emerge --ask --verbose --update --deep --newuse @world
+    SU="doas"
   else
-    sudo emerge-webrsync
-    sudo emerge --ask --verbose --update --deep --newuse @world
+    SU="sudo"
   fi
+
+  "${SU}" emerge-webrsync
+  "${SU}" emerge --ask --verbose --update --deep --newuse @world
 }
 
 function gentoo_clean() {
-  if type doas > /dev/null; then
-    doas emerge --ask --depclean --deep
-    doas eclean-dist --deep
-  else
-    sudo emerge --ask --depclean --deep
-    sudo eclean-dist --deep
-  fi
-}
-
-function vim_install() {
-  cd
-  git clone https://github.com/vim/vim.git "${VIM:=${HOME}/vim}"
-  cd "${VIM}" || exit
-  env CFLAGS="-O2 -pipe -march=native" make -j12
+  local SU
 
   if type doas > /dev/null; then
-    doas make install
+    SU="doas"
   else
-    sudo make install
+    SU="sudo"
   fi
+
+  "${SU}" emerge --ask --depclean --deep
+  "${SU}" eclean-dist --deep
 }
 
 function vim_upgrade() {
-  cd "${VIM:-${HOME}/vim}"
+  (
+    cd ~/vim || exit
 
-  if [[ $(git pull) = "Already up to date." ]]; then
-    return 0
-  fi
+    if [[ "$(git pull)" = "Already up to date." ]]; then
+      return 0
+    fi
 
-  make -j12
+    make -j"$(nproc)"
+    local SU
 
-  if type doas > /dev/null; then
-    doas make install
-  else
-    sudo make install
-  fi
+    if type doas > /dev/null; then
+      SU="doas"
+    else
+      SU="sudo"
+    fi
+
+    "${SU}" make install
+  )
 }
 
-function skk_jisyo_install() {
-  cd
-  skk_dir="${HOME}/.skk"
-  mkdir --parents --verbose "${skk_dir}"
-  cd "${skk_dir}" || exit
-  wget https://skk-dev.github.io/dict/SKK-JISYO.L.gz{,.md5}
-  md5sum --check SKK-JISYO.L.gz.md5 || exit
-  rm SKK-JISYO.L.gz.md5
-  gunzip SKK-JISYO.L.gz
-  cd
-}
+eval "$(fzf --bash)"
