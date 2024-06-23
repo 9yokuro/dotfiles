@@ -3,8 +3,8 @@
 function install_vim() {
   (
     cd || exit
-    git clone https://github.com/vim/vim.git
-    cd vim/ || exit
+    ghq get vim/vim
+    cd "$(ghq root)/github.com/vim/vim" || exit
     env CFLAGS="-O2 -pipe -march=native" make -j"$(nproc)"
     local SU
 
