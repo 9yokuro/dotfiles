@@ -15,21 +15,8 @@ g:loaded_rrhelper = 1
 
 g:mapleader = " "
 
-augroup my_vimrc_autocmd
-  autocmd!
-  autocmd WinClosed * wincmd p
-  autocmd VimResized * wincmd =
-  autocmd QuickFixCmdPost *grep* copen
-  autocmd FileType qf setlocal norelativenumber
-  autocmd FileType go setlocal noexpandtab shiftwidth=8 softtabstop=8
-augroup END
-
-command W update
-
-cnoreabbrev <expr> gr getcmdtype() .. getcmdline() ==# ":gr"
-      \	? [getchar(), ""][1] .. "grep  %<Left><Left>" : "gr"
-
 const vim_config_home = expand("~/.vim")
+execute "source" vim_config_home .. "/autocmd.vim"
 execute "source" vim_config_home .. "/dpp.vim"
 execute "source" vim_config_home .. "/options.vim"
-execute "source" vim_config_home .. "/map.vim"
+autocmd my_vimrc_autocmd VimEnter * execute "source" vim_config_home .. "/map.vim"
