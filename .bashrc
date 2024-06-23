@@ -27,6 +27,7 @@ alias c="clear"
 alias cp="cp --reflink=auto --verbose"
 alias e="exit"
 alias g="git"
+alias gcd="cd \$(ghq list --full-path | fzf)"
 alias grep="grep --color=auto"
 alias la="ls --almost-all --color=auto --classify=auto"
 alias ll="ls --color=auto --classify=auto -l --no-group --size --si"
@@ -44,7 +45,7 @@ alias v="vim"
 function gentoo_upgrade() {
   local SU
 
-  if type doas > /dev/null; then
+  if type doas &> /dev/null; then
     SU="doas"
   else
     SU="sudo"
@@ -57,7 +58,7 @@ function gentoo_upgrade() {
 function gentoo_clean() {
   local SU
 
-  if type doas > /dev/null; then
+  if type doas &> /dev/null; then
     SU="doas"
   else
     SU="sudo"
@@ -69,7 +70,7 @@ function gentoo_clean() {
 
 function vim_upgrade() {
   (
-    cd ~/vim || exit
+    cd "$(ghq root)/github.com/vim/vim" || exit
 
     if [[ "$(git pull)" = "Already up to date." ]]; then
       return 0
@@ -78,7 +79,7 @@ function vim_upgrade() {
     make -j"$(nproc)"
     local SU
 
-    if type doas > /dev/null; then
+    if type doas &> /dev/null; then
       SU="doas"
     else
       SU="sudo"
