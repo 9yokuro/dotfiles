@@ -32,3 +32,7 @@
 	sw = switch
 	swc = switch --create
 	swm = switch main
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !gh auth git-credential
