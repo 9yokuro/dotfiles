@@ -2,7 +2,7 @@
 
 function install_skk_jisyo() {
   (
-    SKK_DIR="${HOME}/.skk"
+    SKK_DIR="${HOME}/.local/share/skk"
     cd || exit
     mkdir --parents --verbose "${SKK_DIR}"
     cd "${SKK_DIR}" || exit
