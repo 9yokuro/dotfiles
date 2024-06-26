@@ -24,6 +24,6 @@ hook_add = '''
 '''
 hook_source = '''
   call skkeleton#config({
-        \   'globalDictionaries': [["~/.skk/SKK-JISYO.L", ""]],
+        \   'globalDictionaries': [["~/.local/share/skk/SKK-JISYO.L", ""]],
         \ })
 '''

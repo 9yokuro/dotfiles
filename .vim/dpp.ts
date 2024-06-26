@@ -4,8 +4,8 @@ import {
   ContextBuilder,
   Dpp,
   Plugin,
-} from "https://deno.land/x/dpp_vim@v0.2.0/types.ts";
-import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.2.0/deps.ts";
+} from "https://deno.land/x/dpp_vim@v0.3.0/types.ts";
+import { Denops, fn } from "https://deno.land/x/dpp_vim@v0.3.0/deps.ts";
 
 type Toml = {
   hooks_file?: string;
