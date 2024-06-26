@@ -3,45 +3,13 @@ export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
-AQUA="${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin/aqua"
-
-if [[ -x "${AQUA}" ]]; then
-  PATH="$(${AQUA} root-dir)/bin:${PATH}"
-fi
-
-CARGO_BIN="${CARGO_INSTALL_ROOT:-${CARGO_HOME:-${HOME}/.cargo}}/bin"
-
-if [[ -d "${CARGO_BIN}" ]]; then
-  PATH="${PATH}:${CARGO_BIN}"
-fi
-
-GHCUP_ENV="${GHCUP_INSTALL_BASE_PREFIX:-${HOME}}/.ghcup/env"
-
-if [[ -f "${GHCUP_ENV}" ]]; then
-  source "${GHCUP_ENV}"
-fi
-
-GO_BIN="${GOPATH:-${HOME}/go}/bin"
-
-if [[ -d "${GO_BIN}" ]]; then
-  PATH="${PATH}:${GO_BIN}"
-fi
-
-export DENO_INSTALL="${HOME}/.deno"
-DENO_BIN="${DENO_INSTALL}/bin"
-
-if [[ -d "${DENO_BIN}" ]]; then
-  PATH="${PATH}:${DENO_BIN}"
-fi
-
-if type opam > /dev/null; then
-  eval "$(opam env)"
-fi
-
-export PATH
-
 export AQUA_GLOBAL_CONFIG="${XDG_CONFIG_HOME}/aqua/aqua.yaml"
 export AQUA_PROGRESS_BAR="true"
+export AQUA_ROOT_DIR="${XDG_DATA_HOME}/aquaproj-aqua"
+
+export CARGO_HOME="${XDG_DATA_HOME}/cargo"
+
+export DENO_INSTALL="${XDG_DATA_HOME}/deno"
 
 export EDITOR="vim"
 
@@ -57,6 +25,43 @@ export LESS=" \
   --HILITE-UNREAD \
   --tabs=2"
 
+AQUA_BIN="${AQUA_ROOT_DIR}/bin"
+
+if [[ -d "${AQUA_BIN}" ]]; then
+  PATH="${AQUA_BIN}:${PATH}"
+fi
+
+CARGO_BIN="${CARGO_HOME}/bin"
+
+if [[ -d "${CARGO_BIN}" ]]; then
+  PATH="${PATH}:${CARGO_BIN}"
+fi
+
+GO_BIN="${HOME}/go/bin"
+
+if [[ -d "${GO_BIN}" ]]; then
+  PATH="${PATH}:${GO_BIN}"
+fi
+
+DENO_BIN="${DENO_INSTALL}/bin"
+
+if [[ -d "${DENO_BIN}" ]]; then
+  PATH="${PATH}:${DENO_BIN}"
+fi
+
+ROSWELL_BIN="${XDG_DATA_HOME}/roswell/bin"
+
+if [[ -d "${ROSWELL_BIN}" ]]; then
+  PATH="${PATH}:${ROSWELL_BIN}"
+fi
+
+VIM_BIN="${XDG_DATA_HOME}/vim/bin"
+
+if [[ -d "${VIM_BIN}" ]]; then
+  PATH="${PATH}:${VIM_BIN}"
+fi
+
+export PATH
 
 if [[ -f ~/.bashrc ]]; then
   source ~/.bashrc

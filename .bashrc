@@ -27,7 +27,6 @@ alias c="clear"
 alias cp="cp --reflink=auto --verbose"
 alias e="exit"
 alias g="git"
-alias gcd="cd \$(ghq list --full-path | fzf)"
 alias grep="grep --color=auto"
 alias la="ls --almost-all --color=auto --classify=auto"
 alias ll="ls --color=auto --classify=auto -l --no-group --size --si"
@@ -35,12 +34,23 @@ alias ln="ln --verbose"
 alias ls="ls --color=auto --classify=auto"
 alias mkdir="mkdir --verbose"
 alias mv="mv --verbose"
-alias rlgosh="rlwrap gosh -r7"
-alias rlsbcl="rlwrap sbcl"
+alias rlros="rlwrap ros run"
 alias rm="rm --verbose"
 alias sync_status="watch grep -e Dirty: -e Writeback: /proc/meminfo"
 alias tree1="tree -L 1"
 alias v="vim"
+
+function gcd() {
+  local CD
+
+  if type zoxide &> /dev/null; then
+    CD="z"
+  else
+    CD="cd"
+  fi
+
+  "${CD}" "$(ghq list --full-path | fzf)"
+}
 
 function gentoo_upgrade() {
   local SU
@@ -77,16 +87,9 @@ function vim_upgrade() {
     fi
 
     make -j"$(nproc)"
-    local SU
-
-    if type doas &> /dev/null; then
-      SU="doas"
-    else
-      SU="sudo"
-    fi
-
-    "${SU}" make install
+    make install
   )
 }
 
 eval "$(fzf --bash)"
+eval "$(zoxide init bash)"
