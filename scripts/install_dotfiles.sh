@@ -16,7 +16,8 @@ for path in ".bash_profile" \
   ".bashrc" \
   ".gitconfig" \
   ".inputrc" \
-  ".vim"
+  ".vim" \
+  "wallpapers"
 do
   ln --symbolic --verbose "${DOTFILES_ROOT}/${path}" "${HOME}/${path}"
 done
