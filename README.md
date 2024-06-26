@@ -11,5 +11,5 @@ git clone https://github.com/9yokuro/dotfiles.git
 cd dotfiles/
 ```
 ```bash
-sbcl --script scripts/dotfiles.lisp --install
+source scripts/install.sh
 ```
