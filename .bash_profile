@@ -37,16 +37,22 @@ if [[ -d "${CARGO_BIN}" ]]; then
   PATH="${PATH}:${CARGO_BIN}"
 fi
 
-GO_BIN="${HOME}/go/bin"
-
-if [[ -d "${GO_BIN}" ]]; then
-  PATH="${PATH}:${GO_BIN}"
-fi
-
 DENO_BIN="${DENO_INSTALL}/bin"
 
 if [[ -d "${DENO_BIN}" ]]; then
   PATH="${PATH}:${DENO_BIN}"
+fi
+
+EMACS_BIN="${XDG_DATA_HOME}/emacs/bin"
+
+if [[ -d "${EMACS_BIN}" ]]; then
+  PATH="${PATH}:${EMACS_BIN}"
+fi
+
+GO_BIN="${HOME}/go/bin"
+
+if [[ -d "${GO_BIN}" ]]; then
+  PATH="${PATH}:${GO_BIN}"
 fi
 
 ROSWELL_BIN="${XDG_DATA_HOME}/roswell/bin"
