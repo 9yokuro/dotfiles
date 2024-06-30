@@ -19,7 +19,6 @@ do
 done
 
 ln --symbolic --verbose "${DOTFILES_ROOT}/wallpapers/" "${DOTFILES_DATA}"
-
 ICONS_DIR="${HOME}/.icons/default"
 mkdir --parents --verbose "${ICONS_DIR}"
 
