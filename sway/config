@@ -7,7 +7,7 @@ set $right l
 
 set $term foot
 
-output * bg ~/.local/share/dotfiles/wallpapers/blue.jpg fill
+output * bg ~/.local/share/dotfiles/wallpapers/neon.jpg fill
 
 input type:keyboard {
   xkb_layout "jp"
@@ -97,7 +97,6 @@ bindsym $mod+Shift+e mode "exit"
 mode "menu" {
   bindsym b exec firefox-bin; mode "default"
   bindsym e exec emacs; mode "default"
-  bindsym g exec grim; mode "default"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
