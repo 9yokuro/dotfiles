@@ -3,14 +3,14 @@ if [[ $- != *i* ]]; then
 fi
 
 function indicate_information() {
-  exit_status=$?
+  EXIT_STATUS=$?
 
-  if git_branch="$(git branch --show-current 2> /dev/null)"; then
-    echo -n "$(tput setaf 5)${git_branch}$(tput sgr0) "
+  if GIT_BRANCH="$(git branch --show-current 2> /dev/null)"; then
+    echo -n "$(tput setaf 5)${GIT_BRANCH}$(tput sgr0) "
   fi
 
-  if [[ "${exit_status}" -ne 0 ]]; then
-    echo -n "$(tput setaf 1)[${exit_status}]$(tput sgr0)"
+  if [[ "${EXIT_STATUS}" -ne 0 ]]; then
+    echo -n "$(tput setaf 1)[${EXIT_STATUS}]$(tput sgr0)"
   fi
 }
 
