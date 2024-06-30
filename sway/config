@@ -120,10 +120,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-bar {
-  swaybar_command waybar
-}
-
 gaps bottom 5
 gaps horizontal 5
 gaps inner 5
@@ -140,6 +136,5 @@ focus_follows_mouse no
 
 exec gentoo-pipewire-launcher
 exec ibus-daemon --daemonize
-exec mako
 
 include /etc/sway/config.d/*
